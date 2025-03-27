@@ -34,7 +34,7 @@ body {
   border: none;
   border-radius: 0;
   box-shadow: none;
-  background-color: #7092be;
+  background-color: #7092bee3;
 }
 
 /* Coordinate display styling at the top left */
@@ -43,7 +43,7 @@ body {
   top: 10px;
   left: 10px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
+  background: #002233;
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 1rem;

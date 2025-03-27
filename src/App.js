@@ -19,12 +19,16 @@ import markerIcons from './markerIcons';
 //   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 // });
 
+const TopLeftCRS = L.extend({}, L.CRS.Simple, {
+  transformation: new L.Transformation(1, 0, 1, 0)
+});
+
 function CoordinateDisplay() {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  
+
   useMapEvent('mousemove', (e) => {
-    // With L.CRS.Simple, e.latlng.lat corresponds to the vertical pixel coordinate (0 to 6000)
-    // and e.latlng.lng corresponds to the horizontal pixel coordinate (0 to 8000)
+    // With our custom CRS, e.latlng.lat equals the y coordinate (0 to 6000)
+    // and e.latlng.lng equals the x coordinate (0 to 8000)
     setCoords({ x: Math.round(e.latlng.lng), y: Math.round(e.latlng.lat) });
   });
 
@@ -36,10 +40,11 @@ function CoordinateDisplay() {
         top: 10,
         left: 50,
         zIndex: 1000,
-        background: 'rgba(255,255,255,0)',
+        background: 'rgba(255,255,255,0.8)',
         padding: '5px 10px',
         borderRadius: '4px',
-        fontSize: '0.9rem'
+        fontSize: '0.9rem',
+        cursor: 'default'
       }}
     >
       Coordinates: {coords.x}, {coords.y}
@@ -48,43 +53,51 @@ function CoordinateDisplay() {
 }
 
 function ClickMarker() {
-  const [position, setPosition] = useState(null);
-
-  const offsetX = 17; // Adjust horizontal offset (in coordinate units)
-  const offsetY = 5;  // Adjust vertical offset (in coordinate units)
-
+  // const [position, setPosition] = useState(null);
+  
   useMapEvent('click', (e) => {
-    const adjustedPosition = {
-      lat: e.latlng.lat + offsetY,
-      lng: e.latlng.lng + offsetX,
-    };
-    setPosition(adjustedPosition);
+    const pos = { lat: e.latlng.lat, lng: e.latlng.lng };
+    //setPosition(pos);
+
+    // Prepare text and copy to clipboard
+    const textToCopy = `${Math.round(pos.lng)}, ${Math.round(pos.lat)}`;
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        console.log('Copied to clipboard:', textToCopy);
+      })
+      .catch((err) => {
+        console.error('Clipboard copy failed:', err);
+      });
   });
 
-  return position === null ? null : (
-    <Marker position={position} icon={markerIcons['clickmarker']}>
-      <Popup>
-        Temporary Marker at {Math.round(position.lng)}, {Math.round(position.lat)}
-      </Popup>
-    </Marker>
-  );
+  // return position === null ? null : (
+  //   <Marker position={position} icon={markerIcons['clickmarker']}>
+  //     <Popup>
+  //       Coordinates: {Math.round(position.lng)}, {Math.round(position.lat)}
+  //     </Popup>
+  //   </Marker>
+  // );
 }
 
+
 function App() {
-  // Define bounds so that top left is (0,0) and bottom right is (6000,8000)
+  // With our custom CRS:
+  // - The x coordinate (stored in lng) ranges from 0 to 8000.
+  // - The y coordinate (stored in lat) ranges from 0 to 6000.
+  // Thus, top left is (0,0) and bottom right is (8000,6000) when displayed as (lng, lat).
   const bounds = [[0, 0], [6000, 8000]];
-  const center = [3000, 4000]; // roughly the center
+  // Center: half of height = 3000, half of width = 4000 (i.e. marker will show as (4000,3000) in (x,y))
+  const center = [3000, 4000];
 
   return (
     <div className="App">
-
       <MapContainer
         center={center}
         zoom={-2}         // initial zoom level (negative to zoom out further)
         minZoom={-5}      // allow zooming out even more
         maxZoom={5}       // limit zooming in too far
         style={{ height: '100vh', width: '100%' }}
-        crs={L.CRS.Simple}  // use a simple CRS for non-geographic maps
+        crs={TopLeftCRS}  // use our custom CRS
       >
         <ImageOverlay url={mapImage} bounds={bounds} />
         <Marker position={center} icon={markerIcons['GoAllons']}>
