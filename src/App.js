@@ -57,9 +57,6 @@ function ClickMarker() {
   
   useMapEvent('click', (e) => {
     const pos = { lat: e.latlng.lat, lng: e.latlng.lng };
-    //setPosition(pos);
-
-    // Prepare text and copy to clipboard
     const textToCopy = `${Math.round(pos.lng)}, ${Math.round(pos.lat)}`;
     navigator.clipboard.writeText(textToCopy)
       .then(() => {
@@ -69,6 +66,7 @@ function ClickMarker() {
         console.error('Clipboard copy failed:', err);
       });
   });
+  return null;
 
   // return position === null ? null : (
   //   <Marker position={position} icon={markerIcons['clickmarker']}>
@@ -79,30 +77,143 @@ function ClickMarker() {
   // );
 }
 
+// If the click event's target is not part of a marker, reset the sidebar.
+function ResetSidebar({ resetSidebar }) {
+  useMapEvent('click', (e) => {
+    // If the clicked element (or one of its parents) doesn't have the class "leaflet-marker-icon",
+    // then we consider that a click off a marker.
+    if (!e.originalEvent.target.closest('.leaflet-marker-icon')) {
+      resetSidebar();
+    }
+  });
+  return null;
+}
+
+// Sidebar component that displays marker information.
+function Sidebar({ isOpen, activeTab, setActiveTab, markerInfo }) {
+  return (
+    <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
+      <div className="sidebar-header">
+        <div className="sidebar-tabs">
+          <button
+            className={`sidebar-tab-btn ${activeTab === "info" ? "active" : ""}`}
+            onClick={() => setActiveTab("info")}
+          >
+            Marker Info
+          </button>
+          <button
+            className={`sidebar-tab-btn ${activeTab === "legend" ? "active" : ""}`}
+            onClick={() => setActiveTab("legend")}
+          >
+            Legend
+          </button>
+          <button
+            className={`sidebar-tab-btn ${activeTab === "settings" ? "active" : ""}`}
+            onClick={() => setActiveTab("settings")}
+          >
+            Settings
+          </button>
+        </div>
+      </div>
+      <div className="sidebar-main">
+        <div className="sidebar-content">
+          {activeTab === "info" && (
+            markerInfo ? (
+              <div>
+                <h3>{markerInfo.title}</h3>
+                <p>{markerInfo.description}</p>
+              </div>
+            ) : (
+              <p>Click on a marker to view its details.</p>
+            )
+          )}
+          {activeTab === "legend" && (
+            <div>
+              <h3>Legend</h3>
+              <p>Here you can describe your marker symbols and map features.</p>
+            </div>
+          )}
+          {activeTab === "settings" && (
+            <div>
+              <h3>Settings</h3>
+              <p>Map settings can be adjusted here.</p>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="sidebar-footer">
+        <p>Footer</p>
+      </div>
+    </div>
+  );
+}
 
 function App() {
-  // With our custom CRS:
-  // - The x coordinate (stored in lng) ranges from 0 to 8000.
-  // - The y coordinate (stored in lat) ranges from 0 to 6000.
-  // Thus, top left is (0,0) and bottom right is (8000,6000) when displayed as (lng, lat).
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [activeTab, setActiveTab] = useState("info");
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  // Demo marker data.
+  const markersData = [
+    {
+      id: 1,
+      position: [2800, 3500],
+      title: 'Marker One',
+      description: 'Details about Marker One.'
+    },
+    {
+      id: 2,
+      position: [3200, 4200],
+      title: 'Marker Two',
+      description: 'Details about Marker Two.'
+    }
+    // More markers can be added here.
+  ];
+
   const bounds = [[0, 0], [6000, 8000]];
-  // Center: half of height = 3000, half of width = 4000 (i.e. marker will show as (4000,3000) in (x,y))
   const center = [3000, 4000];
 
   return (
-    <div className="App">
+    <div className={`App ${sidebarOpen ? "sidebar-open" : ""}`}>
+      {/* Sidebar Component */}
+      <Sidebar
+        isOpen={sidebarOpen}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        markerInfo={selectedMarker}
+      />
+      {/* Sidebar Toggle Tab */}
+      <div className={`sidebar-tab ${sidebarOpen ? "open" : ""}`} onClick={toggleSidebar}>
+        ☰
+      </div>
       <MapContainer
         center={center}
-        zoom={-2}         // initial zoom level (negative to zoom out further)
-        minZoom={-5}      // allow zooming out even more
-        maxZoom={5}       // limit zooming in too far
+        zoom={-2}
+        minZoom={-5}
+        maxZoom={5}
         style={{ height: '100vh', width: '100%' }}
-        crs={TopLeftCRS}  // use our custom CRS
+        crs={TopLeftCRS}
       >
         <ImageOverlay url={mapImage} bounds={bounds} />
         <Marker position={center} icon={markerIcons['GoAllons']}>
           <Popup>This is the center marker with a custom icon!</Popup>
         </Marker>
+        {markersData.map(marker => (
+          <Marker
+            key={marker.id}
+            position={marker.position}
+            icon={markerIcons['clickmarker']}
+            eventHandlers={{
+              click: () => {
+                setSelectedMarker(marker);
+                if (!sidebarOpen) toggleSidebar();
+              }
+            }}
+          >
+            <Popup>{marker.title}</Popup>
+          </Marker>
+        ))}
         <CoordinateDisplay />
         <ClickMarker />
       </MapContainer>

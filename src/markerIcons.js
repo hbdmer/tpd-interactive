@@ -11,8 +11,8 @@ requireMarkerImages.keys().forEach((fileName) => {
   const key = fileName.replace('./', '').replace(/\.(png|jpe?g|svg)$/, '');
   markerIcons[key] = L.icon({
     iconUrl: requireMarkerImages(fileName).default || requireMarkerImages(fileName),
-    iconSize: [50.1, 30],
-    iconAnchor: [25, 30],
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
     popupAnchor: [0, -30],
   });
 });
