@@ -57,7 +57,7 @@ function ClickMarker() {
   
   useMapEvent('click', (e) => {
     const pos = { lat: e.latlng.lat, lng: e.latlng.lng };
-    const textToCopy = `${Math.round(pos.lng)}, ${Math.round(pos.lat)}`;
+    const textToCopy = `${Math.round(pos.lng)}\t${Math.round(pos.lat)}`;
     navigator.clipboard.writeText(textToCopy)
       .then(() => {
         console.log('Copied to clipboard:', textToCopy);
@@ -78,16 +78,16 @@ function ClickMarker() {
 }
 
 // If the click event's target is not part of a marker, reset the sidebar.
-function ResetSidebar({ resetSidebar }) {
-  useMapEvent('click', (e) => {
-    // If the clicked element (or one of its parents) doesn't have the class "leaflet-marker-icon",
-    // then we consider that a click off a marker.
-    if (!e.originalEvent.target.closest('.leaflet-marker-icon')) {
-      resetSidebar();
-    }
-  });
-  return null;
-}
+// function ResetSidebar({ resetSidebar }) {
+//   useMapEvent('click', (e) => {
+//     // If the clicked element (or one of its parents) doesn't have the class "leaflet-marker-icon",
+//     // then we consider that a click off a marker.
+//     if (!e.originalEvent.target.closest('.leaflet-marker-icon')) {
+//       resetSidebar();
+//     }
+//   });
+//   return null;
+// }
 
 // Sidebar component that displays marker information.
 function Sidebar({ isOpen, activeTab, setActiveTab, markerInfo }) {
@@ -142,7 +142,7 @@ function Sidebar({ isOpen, activeTab, setActiveTab, markerInfo }) {
         </div>
       </div>
       <div className="sidebar-footer">
-        <p>Footer</p>
+        <p></p>
       </div>
     </div>
   );
@@ -156,19 +156,19 @@ function App() {
 
   // Demo marker data.
   const markersData = [
-    {
-      id: 1,
-      position: [2800, 3500],
-      title: 'Marker One',
-      description: 'Details about Marker One.'
-    },
-    {
-      id: 2,
-      position: [3200, 4200],
-      title: 'Marker Two',
-      description: 'Details about Marker Two.'
-    }
-    // More markers can be added here.
+    // {
+    //   id: 1,
+    //   position: [2800, 3500],
+    //   title: 'Marker One',
+    //   description: 'Details about Marker One.'
+    // },
+    // {
+    //   id: 2,
+    //   position: [3200, 4200],
+    //   title: 'Marker Two',
+    //   description: 'Details about Marker Two.'
+    // }
+    // // More markers can be added here.
   ];
 
   const bounds = [[0, 0], [6000, 8000]];
@@ -196,9 +196,9 @@ function App() {
         crs={TopLeftCRS}
       >
         <ImageOverlay url={mapImage} bounds={bounds} />
-        <Marker position={center} icon={markerIcons['GoAllons']}>
+        {/* <Marker position={center} icon={markerIcons['GoAllons']}>
           <Popup>This is the center marker with a custom icon!</Popup>
-        </Marker>
+        </Marker> */}
         {markersData.map(marker => (
           <Marker
             key={marker.id}
