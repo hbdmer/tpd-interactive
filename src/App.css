@@ -5,6 +5,21 @@
   font-style: normal;
 }
 
+:root {
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --sidebar-width: 300px;    /* your sidebar’s width */
+  --sidebar-gutter: 5px;    /* space between sidebar and UI element */
+  --extra-gutter: 70px;    /* space between sidebar and UI element */
+
+  --sidebar-offset:  calc(var(--sidebar-width) + var(--sidebar-gutter));
+  --coord-offset:    calc(var(--sidebar-offset) + var(--extra-gutter));
+}
+
+/* Erase cursor functionality */
+.leaflet-container.erase-cursor {
+  cursor: url('./assets/cursor/brush.ico'), auto !important;
+}
+
 /* Reset and global styles */
 html, body {
   margin: 0;
@@ -42,19 +57,22 @@ body {
 .coordinate-display {
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 70px;
   z-index: 1000;
-  background: #002233;
+  background: var(--overlay-bg);
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 1rem;
-  color: #333;
+  color: #FFF;
   font-family: 'Eurostile', 'Segoe UI', sans-serif;
+  border: 2px ridge #112130;
+  transition: left 0.3s ease;  /* animate left property */
+
 }
 
 /* Optional: Override zoom control styles */
 .leaflet-control-zoom a {
-  background-color: rgba(0, 0, 0, 0.7);;
+  background-color: var(--overlay-bg);;
   color: #ffffff;
   font-size: 1.2rem;
   border: 1px ridge #112130;
@@ -80,7 +98,7 @@ body {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: var(--sidebar-width);
   background-color: transparent;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
@@ -138,7 +156,7 @@ body {
 /* Sidebar Main Area: Transparent black with custom border */
 .sidebar-main {
   flex: 1;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--overlay-bg);
   border-left: 2px ridge #112130;
   border-right: 2px ridge #112130;
   border-bottom: 2px ridge #112130;
@@ -169,7 +187,7 @@ body {
   top: 20%;
   left: 0; /* closed state */
   transform: translate(0%, -50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--overlay-bg);
   border-right: 2px ridge #112130;
   border-top: 2px ridge #112130;
   border-bottom: 2px ridge #112130;
@@ -183,14 +201,78 @@ body {
 }
 
 .sidebar-tab.open {
-  left: 300px;  /* when open, move to 300px (sidebar width) */
+  left: var(--sidebar-width);  /* when open, move to 300px (sidebar width) */
+  
 }
 
 /* When the sidebar is open, shift the coordinate display and zoom controls to the right */
 .App.sidebar-open .coordinate-display {
-  left: 310px;  /* Adjust as needed, slightly more than the sidebar width (300px) */
+  left: var(--coord-offset);  /* Adjust as needed, slightly more than the sidebar width (300px) */
+  transition: left 0.3s ease;  /* animate left property */
 }
 
+.leaflet-top.leaflet-left {
+  left: 5px;
+  transition: left 0.3s ease;   /* ← move transition here */
+}
+
+/* These are the zoom buttons. */
 .App.sidebar-open .leaflet-top.leaflet-left {
-  left: 310px !important;
+  left: var(--sidebar-offset) !important;
+}
+
+.toolbar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  background: var(--overlay-bg);
+  padding: 5px;
+  border-right: 2px ridge #112130;
+  z-index: 2100;
+  transition: left 0.3s ease;
+}
+
+.App.sidebar-open .toolbar {
+  left: calc(var(--sidebar-width));
+}
+
+.toolbar button {
+  margin: 4px 0;
+  padding: 6px 12px;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Eurostile', 'Segoe UI', sans-serif;
+}
+
+.toolbar button.active {
+  background: #006699;
+}
+
+.toast {
+  position: absolute;
+  top: 50px;
+  left: 70px;
+  background: var(--overlay-bg);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 1001;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.App.sidebar-open .toast {
+  left: calc(var(--sidebar-width) + var(--sidebar-gutter) + 70px);
+}
+
+/* When visible, add .visible to show */
+.toast.visible {
+  opacity: 1;
 }
