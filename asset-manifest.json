@@ -1,10 +1,15 @@
 {
   "files": {
-    "main.css": "/gp1203test/static/css/main.b3622bf2.css",
-    "main.js": "/gp1203test/static/js/main.d80e550d.js",
+    "main.css": "/gp1203test/static/css/main.fb025239.css",
+    "main.js": "/gp1203test/static/js/main.bb815686.js",
     "static/js/453.ed3810f9.chunk.js": "/gp1203test/static/js/453.ed3810f9.chunk.js",
+    "static/media/map2.png": "/gp1203test/static/media/map2.af5efc194d67ebe88985.png",
+    "static/media/map3.png": "/gp1203test/static/media/map3.9d3f65da79efd1c69fce.png",
+    "static/media/map4.png": "/gp1203test/static/media/map4.b3a811fdc644053b08a0.png",
     "static/media/map_pop.png": "/gp1203test/static/media/map_pop.707f08bd198c3bdb977b.png",
+    "static/media/map1.png": "/gp1203test/static/media/map1.16192840c8cf1b8fa9c9.png",
     "static/media/map_farm.png": "/gp1203test/static/media/map_farm.cb2f1095f9db9acfe697.png",
+    "static/media/map0.png": "/gp1203test/static/media/map0.b4b0a6a10f7e9da4348a.png",
     "static/media/map_res.png": "/gp1203test/static/media/map_res.3c21c20b7f8625dd748f.png",
     "static/media/map_biome.png": "/gp1203test/static/media/map_biome.8dddf5c1bfd45463b48d.png",
     "static/media/map.png": "/gp1203test/static/media/map.bea34e3599990f6dd444.png",
@@ -14,12 +19,12 @@
     "static/media/favicon.ico": "/gp1203test/static/media/favicon.8eba620ae60c15200e16.ico",
     "index.html": "/gp1203test/index.html",
     "static/media/cross.ico": "/gp1203test/static/media/cross.48b3858dc1d8974f30e4.ico",
-    "main.b3622bf2.css.map": "/gp1203test/static/css/main.b3622bf2.css.map",
-    "main.d80e550d.js.map": "/gp1203test/static/js/main.d80e550d.js.map",
+    "main.fb025239.css.map": "/gp1203test/static/css/main.fb025239.css.map",
+    "main.bb815686.js.map": "/gp1203test/static/js/main.bb815686.js.map",
     "453.ed3810f9.chunk.js.map": "/gp1203test/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3622bf2.css",
-    "static/js/main.d80e550d.js"
+    "static/css/main.fb025239.css",
+    "static/js/main.bb815686.js"
   ]
 }
