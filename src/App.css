@@ -15,11 +15,6 @@
   --coord-offset:    calc(var(--sidebar-offset) + var(--extra-gutter));
 }
 
-/* Erase cursor functionality */
-.leaflet-container.erase-cursor {
-  cursor: url('./assets/cursor/brush.ico'), auto !important;
-}
-
 /* Reset and global styles */
 html, body {
   margin: 0;
@@ -42,6 +37,67 @@ body {
   padding: 0;
 }
 
+.fleet-input {
+  width: 48px;
+  margin: 0 4px;
+  padding: 2px 4px;
+  font-family: 'Eurostile', sans-serif;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 4px;
+  color: #fff;
+}
+.fleet-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* App.css */
+.map-switcher {
+  background: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.map-switcher h4 {
+  margin: 10px 0 5px;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Eurostile', sans-serif;
+}
+
+.map-switcher button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 4px 0;              /* <-- spacing between buttons */
+  padding: 6px 10px;
+  background: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);  /* light border for separation */
+  font-family: 'Eurostile', sans-serif;
+  border-radius: 4px;
+}
+
+.map-switcher button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.map-switcher button.active {
+  background-color: #006699;
+  border-color: #fff;
+}
+
+.turnmap-group { position: relative; }
+.turnmap-list {
+  margin-top: 5px;
+}
+.turnmap-group:hover .turnmap-list {
+  display: block;
+}
+
+
 /* Leaflet map container styling */
 .leaflet-container {
   width: 100%;
@@ -51,6 +107,7 @@ body {
   box-shadow: none;
   background-color: #7092bee3;
   cursor: url('./assets/cursor/cross.ico'), auto;
+  pointer-events: auto !important;
 }
 
 /* Coordinate display styling at the top left */
@@ -70,6 +127,18 @@ body {
 
 }
 
+.fleet-icon {
+  background: none;
+  border: none;
+}
+
+.fleet-icon-img {
+  width: 32px;
+  height: 32px;
+  transform: none !important;
+  will-change: unset !important;
+}
+
 /* Optional: Override zoom control styles */
 .leaflet-control-zoom a {
   background-color: var(--overlay-bg);;
@@ -83,8 +152,14 @@ body {
   text-align: center;
 }
 
+.leaflet-marker-icon {
+  pointer-events: auto !important;
+  user-select: none;
+  touch-action: none;
+}
+
 .leaflet-control-zoom a:hover {
-  background-color: #006699;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .leaflet-control-zoom-in::before,
@@ -205,6 +280,46 @@ body {
   
 }
 
+.sidebar-content textarea {
+  width: 100%;
+  height: 10rem;
+  font-size: 0.85rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #000;
+  resize: vertical;
+}
+
+.sidebar-content button.import-btn {
+  margin-top: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Eurostile', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-content button.import-btn:hover {
+  background-color: #0088cc;
+}
+
+.selected-fleet-panel {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-family: 'Eurostile', sans-serif;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  line-height: 1.4;
+}
+
 /* When the sidebar is open, shift the coordinate display and zoom controls to the right */
 .App.sidebar-open .coordinate-display {
   left: var(--coord-offset);  /* Adjust as needed, slightly more than the sidebar width (300px) */
@@ -248,6 +363,10 @@ body {
   color: #fff;
   cursor: pointer;
   font-family: 'Eurostile', 'Segoe UI', sans-serif;
+}
+
+.toolbar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .toolbar button.active {
