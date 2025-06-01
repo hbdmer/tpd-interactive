@@ -1,16 +1,13 @@
 {
   "files": {
     "main.css": "/gp1203test/static/css/main.d158fdfd.css",
-    "main.js": "/gp1203test/static/js/main.289572d9.js",
+    "main.js": "/gp1203test/static/js/main.8dca01ad.js",
     "static/js/453.68693753.chunk.js": "/gp1203test/static/js/453.68693753.chunk.js",
-    "static/media/map2.png": "/gp1203test/static/media/map2.af5efc194d67ebe88985.png",
-    "static/media/map3.png": "/gp1203test/static/media/map3.9d3f65da79efd1c69fce.png",
+    "static/media/map0.png": "/gp1203test/static/media/map0.3b23509d37d276f6f1f2.png",
     "static/media/popmap.png": "/gp1203test/static/media/popmap.694e831cc14fde1cce8f.png",
-    "static/media/map4.png": "/gp1203test/static/media/map4.b3a811fdc644053b08a0.png",
+    "static/media/map0_cities.png": "/gp1203test/static/media/map0_cities.598209e4d8b2174d45b1.png",
     "static/media/farmmap.png": "/gp1203test/static/media/farmmap.e3a07e9e18fbc4585bcd.png",
-    "static/media/map1.png": "/gp1203test/static/media/map1.16192840c8cf1b8fa9c9.png",
     "static/media/resmap.png": "/gp1203test/static/media/resmap.bc7c666128fac987e9c4.png",
-    "static/media/map0.png": "/gp1203test/static/media/map0.b4b0a6a10f7e9da4348a.png",
     "static/media/nationmap.png": "/gp1203test/static/media/nationmap.9e77eb1104ceddec7a17.png",
     "static/media/ns_RumoKaya.png": "/gp1203test/static/media/ns_RumoKaya.21a830dce7af5caef4c3.png",
     "static/media/ns_bnuuy.png": "/gp1203test/static/media/ns_bnuuy.8eab8817db388726fd25.png",
@@ -45,11 +42,11 @@
     "index.html": "/gp1203test/index.html",
     "static/media/cross.ico": "/gp1203test/static/media/cross.48b3858dc1d8974f30e4.ico",
     "main.d158fdfd.css.map": "/gp1203test/static/css/main.d158fdfd.css.map",
-    "main.289572d9.js.map": "/gp1203test/static/js/main.289572d9.js.map",
+    "main.8dca01ad.js.map": "/gp1203test/static/js/main.8dca01ad.js.map",
     "453.68693753.chunk.js.map": "/gp1203test/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d158fdfd.css",
-    "static/js/main.289572d9.js"
+    "static/js/main.8dca01ad.js"
   ]
 }
