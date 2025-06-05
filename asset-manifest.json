@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/gp1203test/static/css/main.d158fdfd.css",
-    "main.js": "/gp1203test/static/js/main.8dca01ad.js",
+    "main.js": "/gp1203test/static/js/main.e2e75b6c.js",
     "static/js/453.68693753.chunk.js": "/gp1203test/static/js/453.68693753.chunk.js",
+    "static/media/map1.png": "/gp1203test/static/media/map1.e56b870cc749e16917d7.png",
     "static/media/map0.png": "/gp1203test/static/media/map0.3b23509d37d276f6f1f2.png",
     "static/media/popmap.png": "/gp1203test/static/media/popmap.694e831cc14fde1cce8f.png",
     "static/media/map0_cities.png": "/gp1203test/static/media/map0_cities.598209e4d8b2174d45b1.png",
@@ -19,6 +20,7 @@
     "static/media/ns_bric.png": "/gp1203test/static/media/ns_bric.ab4baf8938ec863b09bd.png",
     "static/media/ns_erewhon.png": "/gp1203test/static/media/ns_erewhon.0607be7279f52f494aa0.png",
     "static/media/ns_eon.png": "/gp1203test/static/media/ns_eon.777ca9e6fe33430430e8.png",
+    "static/media/namedmap.png": "/gp1203test/static/media/namedmap.a5d8450dd55f949c857a.png",
     "static/media/ns_sandstorm.png": "/gp1203test/static/media/ns_sandstorm.1a1586e328bf66276165.png",
     "static/media/ns_auldric.png": "/gp1203test/static/media/ns_auldric.bb629c797265e6e34308.png",
     "static/media/ns_mababa.png": "/gp1203test/static/media/ns_mababa.49cbbc5ff9a9c32dbb96.png",
@@ -42,11 +44,11 @@
     "index.html": "/gp1203test/index.html",
     "static/media/cross.ico": "/gp1203test/static/media/cross.48b3858dc1d8974f30e4.ico",
     "main.d158fdfd.css.map": "/gp1203test/static/css/main.d158fdfd.css.map",
-    "main.8dca01ad.js.map": "/gp1203test/static/js/main.8dca01ad.js.map",
+    "main.e2e75b6c.js.map": "/gp1203test/static/js/main.e2e75b6c.js.map",
     "453.68693753.chunk.js.map": "/gp1203test/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d158fdfd.css",
-    "static/js/main.8dca01ad.js"
+    "static/js/main.e2e75b6c.js"
   ]
 }
