@@ -1,0 +1,15 @@
+Nation Application
+
+Nation: Eternal City, Mabarrabha
+Capital: Mabarrabha
+Main Port Anaan Tenn, outskirts of Mabarrabha
+
+Flag/Colour: Attached  #f0c132[hex] | 240, 193, 50 [RGB]
+Government: Early-mid stage Dictatorship. high command consists of the Sovran and his closest allies and advisors. The functionally deposed Sultan is kept for political reasons, though the people grow to despise him more and more. 
+HOS: Our Sovran, Anaan Rin 
+Press: State-controlled news is the only official source remaining, though an extensive, historic, network of underground journalism and information-sharing exists. given the sheer scope of the city, it has proven impossible to supress and must be dealt with diplomatically.
+
+Vehicle design: Heavy focus on airborne units and high-tech weapons. Black metamaterial plating and golden, labyrinthine filigree.
+Foreign Policy: Insular. Immigration has been sharply restricted following the political turnover. Trade continues.
+History 
+The illustrious City-state has a history stretching back thousands of years. In it’s early years it became the founding centre of the Labyrinthine Mysteries, a religion dedicated to the mind and soul. For a long time, philosophers and intellectuals have flocked to the city, seeking the mental enlightenment promised by the philosophy of the Labyrinthine Mysteries. As such, the City has developed a high level of technological prowess-and a vast underclass. These people heard of the standard of life offered by the great city, and were bitterly disappointed once they arrived. In recent times, the old Caliphate has been overthrown by the forces of a new political faction. Led by the Sovran Anaan, they have captured the hearts of the people who have long lived in poverty and starvation due to the Caliphate’s voluptuous excesses. What these developments mean for the Eternal City, is yet to be seen…	

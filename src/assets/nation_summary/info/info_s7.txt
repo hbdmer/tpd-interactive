@@ -1,0 +1,11 @@
+Nation: Sector 7
+Capital: The Dome
+Main Port: P12/S8
+
+Flag: TBD
+COLOR: 59,238,232
+Government: Authoritarian transitional government
+Head of State: Sector Commander Alex Krieg
+Press: Monitored "free" press
+History: After a bloody 9 way civil war Sector 7 took over the 8 Sectors of "Reggies Chocolate Co.", a brutal oppressive state which treated their workers as borderline livestock. Now as a pirate threat rises the Sectors rise again, united under one banner, one bearing a bright red 7.
+Foreign Policy: Minor expansionism, anti-piracy, Trading state.

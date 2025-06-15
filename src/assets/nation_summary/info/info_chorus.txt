@@ -1,0 +1,18 @@
+Nation: The Chorus Collective Hivemind
+Capital: Central Hive Node
+Main Port: Spawning Pool 1
+Flag: symbol attached
+Color: Hex #600121 rgba(96,1,33,255)
+Hex #611f89 rgba(97,31,137,255)
+Government: Doomed Devourers Hivemind, organisms within the hive typically eat anything and anyone inside their walls, this is including each other. They somehow manage to form cohesive network of industry and production being frugal despite this gluttonous and cannibalistic nature.
+Head of State: Hivemind "Carnus Vex"
+Press: NA
+History: In an undiscovered underwater cavern beneath the waves, a collective of bioforms rapidly breed and multiply bio-engineered vessels of war to extract more resources from the surface. 
+They show no allegiance to any masters, they show no mercy, they sacrifice themselves knowing their own biomass will simply be recycled for the next bioform and that any biomass they collect will simply be a net positive, they are a swarm, a wave of dense purple carapace, sharpened bones and flesh.
+
+We have awoken to a cacophony of war on the surface, the surface dwellers have brought us to them with a bright lantern of fire and brimstone, the smell of blood and the thickness of crude oil fills our gills, forcing us to surface with lungs of newly found air.
+
+We Hunger.
+
+Vehicle Design Theme: White Bones underneath, Red Flesh ontop of that, Purple carapace layers at the very top. Designs derive from a mixture of mainly Marine/Insectoid animals with Tyranid aspects from Warhammer 40k.
+Foreign Policy: Constant and consistent War declaration to the most immediate nation, typically 1 at a time if possible.

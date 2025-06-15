@@ -1,0 +1,11 @@
+Nation: BlueRock Investment Company (BRIC) 
+Capital: New Bond City
+
+Color: 254 206 117
+Government: Corporate government, positions of power are distributed by usefullness (as determined by the Algorithm)
+Head of State: The Board of Directors, a group of high ranking executives who are responsible for high level management of the country 
+Press: The press is mostly free, and although social media manipulation is a mainstay of BRIC tactics, that is usually reserved for marketing
+History: Starting its life as a small investment group, the BlueRock Investment Company expanded its influence into all sectors of its home nation, slowly but surely buying up almost all of the assets in the country. By the time of the corporate takeover, BRIC was in power in all but name. The secret behind BRIC’s success is the Algorithm, a massive data analysis artificial intelligence that directs the company on both a macro and micro scale. This, coupled with BRIC’s hardline stance against corruption and its vast employee training and retention programs, has made BRIC the largest, most stable corporation for thousands of miles. A citizen of the BlueRock Investment Company may not have as many freedoms as those in other countries, but their fat salaries make up for it.
+(Note: the Algorithm is the lore reason for why weird ecomaxxing maneuvers happens)
+Vehicle Design Theme: BRIC vehicles are all near futuristic unmanned vessels, with an emphasis on stealthier looking designs.
+Foreign Policy: BRIC wants money, and it can’t make as much money if people do not trust it. As such, BRIC’s foreign policy is focused around trade and absolute neutrality, with the company refusing to form military alliances at all.

@@ -1,0 +1,12 @@
+Nation: Eternal Kingdom of Mjalltir
+Capital: Norhalen
+Main Port: Norhalen Harbor
+
+Flag: attached
+COLOR: 00ffc4 (HEX) 133, 14, 1 (RGB)
+Government: Strong colonial monarchy
+TPD Faction Leader: @His Eminence 
+Head of State: His Eminence
+History: Mjalltir was said to be founded 10,000 years ago by a demi-god through his guidance to and unification of warring tribes. It was a great power when other nations were but hunter-gatherers and subsistence farmers, but many years eroded its marble foundations. Now, with the guidance and revival of His Eminence, Mjalltir aims to bring its newfound prosperity to the rest of the world.
+Vehicle Design Theme: Early cold war realistic craft with anachronistic add-ons. Technology moves fast in Mjalltir and doesn’t always have time to be implemented properly. It’s not unusual to see something like a missile destroyer with spotter biplanes.
+Foreign Policy: expansionist colonizers, specifically finding those most worthy of enlightenment and education for its colonial programs.

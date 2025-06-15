@@ -1,0 +1,19 @@
+Nation Application | Sail Time
+
+Nation: Ionian Kingdom
+Capital: Aeaea
+Port: Ithika
+
+Flag/Colour: Attached  #173D4A [hex] | 23, 61, 74 [RGB]
+Government: Monarchy
+HOS: Odysseus / The Immortal King
+News: Yes
+
+Unexpanded Lore: To keep this short and simple, our story follows a man who journeyed west to fight in some large, long forgotten war. On his journey back he faced many challenges from the gods. Of these challenges, the hardest ones were losing his best friend and his entire crew of 600 men, mostly at the hands of the Sea God. In an act of defiance when forced into the water, Odysseus picked up the god's trident and proceeded to stab the god for each of his murdered crew, not killing him but leaving him in a wounded and vulnerable state. Following this, he returned home to find it in ruins, and his people in revolt, trying to harm his family. His response to this was granting them the mercy of death.
+
+Following many years later, the changed king noticed that he had not aged since the fateful day he returned and has deduced that he has received the curse of immortality from a vengeful sea god. He also learnt that he had received some sort of ability to witness the future, and in doing so witness untold death and destruction due to the advancement of technology.
+
+In an effort to protect his home and his people, he used his curse to ensure that technology never progressed past the age of gunpowder, sails, air and basic steam and focused on flooding the market with rum and wine.
+
+Vehicle design: Mostly age of sail, a few ww1 tanks and some pre 1900 steam ships/ ironclads
+Foreign Policy: Rum

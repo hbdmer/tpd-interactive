@@ -15,16 +15,25 @@ import L from 'leaflet';
 
 // Assets
 import Logo from './assets/icon/favicon.ico';
-import mapDefault from './assets/map/map.png';
-import mapBiome from './assets/map/map_biome.png';
-import mapFarm from './assets/map/map_farm.png';
-import mapPop from './assets/map/map_pop.png';
-import mapRes from './assets/map/map_res.png';
+import mapDefault from './assets/map/nationmap.png';
+import mapBiome from './assets/map/biomemap.png';
+import mapFarm from './assets/map/farmmap.png';
+import mapPop from './assets/map/popmap.png';
+import mapRes from './assets/map/resmap.png';
+import mapReg from './assets/map/namedmap.png';
 import markerIcons from './markerIcons';
+import resourceLegend from './assets/map/Resource_legend.png';
 
 // Components
 import CursorManager from './components/CursorManager';
 import FleetMapApp from './components/FleetManager';
+import MapEventHandler from './components/MapEventHandler';
+import Toolbar from './components/Toolbar';
+import Toast from './components/Toast';
+import CoordinateDisplay from './components/CoordinateDisplay';
+import MapSwitcher from './components/MapSwitcher';
+import NationSummary from './components/NationSummary';
+import NationSummaryPanel from './components/NationSummaryPanel';
 
 // Styles
 import './App.css';
@@ -51,180 +60,9 @@ const MAPS = {
   Arability: mapFarm,
   Population: mapPop,
   Resources: mapRes,
+  Region: mapReg,
   ...TURN_MAPS,
 };
-
-const MapSwitcher = ({ current, onChange }) => (
-  <div className="map-switcher">
-    <h4>Base Maps</h4>
-    {Object.keys(MAPS).filter(k => !TURN_MAPS[k]).map(k => (
-      <button
-        key={k}
-        className={current === k ? 'active' : ''}
-        onClick={() => onChange(k)}
-      >{k}</button>
-    ))}
-    <div className="turnmap-group">
-      <h4>Turn Maps</h4>
-      <div className="turnmap-list">
-        {Object.entries(TURN_MAPS).map(([name]) => (
-          <button
-            key={name}
-            onClick={() => onChange(name)}
-            className={current === name ? 'active' : ''}
-          >{name}</button>
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
-const Toolbar = memo(({ activeTool, setActiveTool, eraseRadius, setEraseRadius }) => {
-  return (
-    <div className="toolbar">
-      {['copy', 'draw', 'erase'].map(tool => (
-        <button
-          key={tool}
-          className={activeTool === tool ? 'active' : ''}
-          onClick={() => setActiveTool(tool)}
-        >{tool.charAt(0).toUpperCase() + tool.slice(1)}</button>
-      ))}
-      {activeTool === 'erase' && (
-        <input
-          type="range"
-          min="10"
-          max="200"
-          step="5"
-          value={eraseRadius}
-          onChange={e => setEraseRadius(Number(e.target.value))}
-          className="vertical-slider"
-        />
-      )}
-    </div>
-  );
-});
-
-const Toast = memo(({ message }) => (
-  <div className={`toast ${message ? 'visible' : ''}`}>{message}</div>
-));
-
-const CoordinateDisplay = memo(({ coords }) => (
-  <div className="coordinate-display">Coordinates: {coords.x}, {coords.y}</div>
-));
-
-function MapEventHandler({ activeTool, handleCopy, setCoords, drawStart, setDrawStart, setLines, eraseRadius, isMultiDraw }) {
-  const map = useMap();
-  const previewLine = useRef(null);
-  const eraseCircle = useRef(null);
-  const drawPoints = useRef([]);
-
-  const handleDrawAction = useCallback(latlng => {
-    drawPoints.current.push(latlng);
-
-    if (!drawStart) {
-      setDrawStart(latlng);
-    } else {
-      const dist = Math.hypot(latlng.lng - drawStart.lng, latlng.lat - drawStart.lat);
-      setLines(prev => [...prev, { id: crypto.randomUUID(), positions: [drawStart, latlng], dist }]);
-
-      if (!isMultiDraw) {
-        setDrawStart(null);
-
-        const text = drawPoints.current.map(p => `${Math.round(p.lng)}\t${Math.round(p.lat)}`).join('\n');
-        navigator.clipboard.writeText(text);
-        drawPoints.current = [];
-      } else {
-        setDrawStart(latlng);
-      }
-
-      if (previewLine.current) {
-        map.removeLayer(previewLine.current);
-        previewLine.current = null;
-      }
-    }
-  }, [drawStart, map, setDrawStart, setLines, isMultiDraw]);
-
-  const closestDist = (latlng, start, end) => {
-    const Cx = end.lng - start.lng, Cy = end.lat - start.lat;
-    const t = ((latlng.lng - start.lng) * Cx + (latlng.lat - start.lat) * Cy) / (Cx * Cx + Cy * Cy);
-    const clamped = Math.max(0, Math.min(1, t));
-    const xx = start.lng + clamped * Cx;
-    const yy = start.lat + clamped * Cy;
-    return Math.hypot(latlng.lng - xx, latlng.lat - yy);
-  };
-
-  const handleEraseAction = useCallback(latlng => {
-    setLines(prev => prev.filter(line => {
-      const [start, end] = Array.isArray(line) ? line : line.positions;
-      return closestDist(latlng, start, end) > eraseRadius;
-    }));
-  }, [setLines, eraseRadius]);
-
-  const onMouseMove = useCallback(({ latlng }) => {
-    setCoords({ x: Math.round(latlng.lng), y: Math.round(latlng.lat) });
-
-    if (activeTool === 'draw' && drawStart) {
-      if (!previewLine.current) {
-        previewLine.current = L.polyline([drawStart, latlng], { interactive: false }).addTo(map);
-      } else {
-        previewLine.current.setLatLngs([drawStart, latlng]);
-      }
-    }
-
-    if (activeTool === 'erase') {
-      if (!eraseCircle.current) {
-        eraseCircle.current = L.circle(latlng, {
-          radius: eraseRadius,
-          color: 'red',
-          weight: 1,
-          fillOpacity: 0.1,
-          interactive: false,
-        }).addTo(map);
-      } else {
-        eraseCircle.current.setLatLng(latlng);
-        eraseCircle.current.setRadius(eraseRadius);
-      }
-    } else {
-      if (eraseCircle.current) {
-        map.removeLayer(eraseCircle.current);
-        eraseCircle.current = null;
-      }
-    }
-  }, [activeTool, drawStart, eraseRadius, map, setCoords]);
-
-  const onMapClick = useCallback(({ latlng }) => {
-    if (activeTool === 'copy') handleCopy();
-    else if (activeTool === 'draw') handleDrawAction(latlng);
-    else if (activeTool === 'erase') handleEraseAction(latlng);
-  }, [activeTool, handleCopy, handleDrawAction, handleEraseAction]);
-
-  useEffect(() => () => {
-    if (previewLine.current) {
-      map.removeLayer(previewLine.current);
-      previewLine.current = null;
-    }
-    if (eraseCircle.current) {
-      map.removeLayer(eraseCircle.current);
-      eraseCircle.current = null;
-    }
-  }, [map]);
-
-  useEffect(() => {
-    if (activeTool !== 'draw') {
-      setDrawStart(null);
-      drawPoints.current = [];
-      if (previewLine.current) {
-        map.removeLayer(previewLine.current);
-        previewLine.current = null;
-      }
-    }
-  }, [activeTool, map, setDrawStart]);
-
-  useMapEvent('mousemove', onMouseMove);
-  useMapEvent('click', onMapClick);
-  return null;
-}
-
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -240,6 +78,12 @@ const App = () => {
   const [fleetImportText, setFleetImportText] = useState('');
   const [fleetImportTrigger, setFleetImportTrigger] = useState('');
   const [selectedFleet, setSelectedFleet] = useState(null);
+  const [fleetData, setFleetData] = useState([]);
+  const [legendOpen, setLegendOpen] = useState(false);
+  const [importedMaps, setImportedMaps] = useState([]);
+  const [showCapitals, setShowCapitals] = useState(true);
+  const [activeNation, setActiveNation] = useState(null);
+  const [nationSidebarOpen, setNationSidebarOpen] = useState(false);
 
 
   const toggleSidebar = () => setSidebarOpen(open => !open);
@@ -249,6 +93,17 @@ const App = () => {
     setToastMsg('Copied to clipboard');
     setTimeout(() => setToastMsg(''), 2000);
   }, [coords]);
+
+  const handleImport = (map) => {
+    setImportedMaps(prev => [...prev, map]);
+    setSelectedMap(map.name);
+  };
+
+  const handleDeleteImport = (name) => {
+    setImportedMaps(prev => prev.filter(m => m.name !== name));
+    if (selectedMap === name) setSelectedMap('Claims');
+  };
+
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -272,10 +127,13 @@ const App = () => {
     return null;
   };
 
+  
+
   const mapClasses = ['leaflet-container', activeTool === 'copy' && 'copy-cursor', activeTool === 'erase' && 'erase-cursor'].filter(Boolean).join(' ');
 
   return (
-    <div className={`App ${sidebarOpen ? 'sidebar-open' : ''}`}>
+    
+  <div className={`App ${sidebarOpen ? 'sidebar-open' : ''} ${nationSidebarOpen ? 'nation-open' : ''}`}>
       <div className={`sidebar-tab ${sidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>☰</div>
       <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
@@ -293,7 +151,16 @@ const App = () => {
           {activeSidebarTab === 'tab1' && (
               <div>
                 
-                <MapSwitcher current={selectedMap} onChange={setSelectedMap} />
+                <MapSwitcher
+                  current={selectedMap}
+                  onChange={setSelectedMap}
+                  MAPS={MAPS}
+                  TURN_MAPS={TURN_MAPS}
+                  importedMaps={importedMaps}
+                  onImport={handleImport}
+                  onDeleteImport={handleDeleteImport}
+                />
+                 
               </div>
             )}
           {activeSidebarTab === 'tab2' && (
@@ -446,7 +313,34 @@ const App = () => {
                   </div>
                 </div>
               )}
-              
+                <div className="mt-4 text-sm bg-black bg-opacity-30 text-white p-3 border border-white rounded">
+                  {/* existing fleet info UI ... */}
+
+                  {/* New: Scrollable fleet list table */}
+                  <div className="mt-6">
+                    <label className="block font-bold mb-2"><br />All Fleets End Positions:</label>
+                    <div style={{ maxHeight: '200px', overflowY: 'auto', border: '1px solid white', borderRadius: '4px' }}>
+                      <table className="min-w-full text-xs">
+                        <thead className="bg-gray-800 text-white">
+                          <tr>
+                            <th className="px-2 py-1 text-left">Name</th>
+                            <th className="px-2 py-1 text-left">X</th>
+                            <th className="px-2 py-1 text-left">Y</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-700">
+                          {fleetData.map(f => (
+                            <tr key={f.name} className="hover:bg-gray-700">
+                              <td className="px-2 py-1 whitespace-nowrap">{f.name}</td>
+                              <td className="px-2 py-1">{Math.round(f.x)}</td>
+                              <td className="px-2 py-1">{Math.round(f.y)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
             </div>
           )}
           </div>
@@ -461,52 +355,109 @@ const App = () => {
         setEraseRadius={setEraseRadius}
       />
       <Toast message={toastMsg} />
-
+      
       <MapContainer
-        center={center}
-        zoom={-2}
-        minZoom={-5}
-        maxZoom={5}
-        crs={TopLeftCRS}
-        className={mapClasses}
-        style={{ height: '100vh', width: '100%' }}
-        dragging={true}
-        trackResize={true}
-        zoomControl={true}
-      >
-        <ImageOverlay url={MAPS[selectedMap]} bounds={bounds} />
-        {markersData.map((m, i) => (
-          <Marker key={i} position={m.position} icon={markerIcons.clickmarker}>
-            <Popup>{m.title}</Popup>
-          </Marker>
-        ))}
-        {lines.map((line) => (
-          <Polyline key={line.id} positions={line.positions}>
-            <Tooltip permanent direction="center" offset={[0, -10]}>
-              {line.dist.toFixed(0)} units
-            </Tooltip>
-          </Polyline>
-        ))}
-        <FleetMapApp
-          importText={fleetImportTrigger}
-          selectedFleet={selectedFleet}
-          setSelectedFleet={setSelectedFleet}
-        />
-        <MapClickDeselect setSelectedFleet={setSelectedFleet} />
+      center={center}
+      zoom={-2}
+      minZoom={-5}
+      maxZoom={5}
+      crs={TopLeftCRS}
+      className={mapClasses}
+      style={{ height: '100vh', width: '100%' }}
+      dragging={true}
+      trackResize={true}
+      zoomControl={true}
+    >
+      <ImageOverlay
+        url={
+          importedMaps.find(m => m.name === selectedMap)?.url
+          || MAPS[selectedMap]
+        }
+        bounds={bounds}
+      />
+      {showCapitals && (
+        <NationSummary onSelectNation={(name) => {
+          setActiveNation(name);
+          setNationSidebarOpen(true);
+        }} />
+      )}
 
-        <MapEventHandler
-          activeTool={activeTool}
-          handleCopy={handleCopy}
-          setCoords={setCoords}
-          drawStart={drawStart}
-          setDrawStart={setDrawStart}
-          setLines={setLines}
-          eraseRadius={eraseRadius}
-          isMultiDraw={isMultiDraw}
-        />
-        <CursorManager activeTool={activeTool} />
-        <CoordinateDisplay coords={coords} />
-      </MapContainer>
+      {markersData.map((m, i) => (
+        <Marker key={i} position={m.position} icon={markerIcons.clickmarker}>
+          <Popup>{m.title}</Popup>
+        </Marker>
+      ))}
+
+      {lines.map((line) => (
+        <Polyline key={line.id} positions={line.positions}>
+          <Tooltip permanent direction="center" offset={[0, -10]}>
+            {line.dist.toFixed(0)} units
+          </Tooltip>
+        </Polyline>
+      ))}
+
+      <FleetMapApp
+        importText={fleetImportTrigger}
+        selectedFleet={selectedFleet}
+        setSelectedFleet={setSelectedFleet}
+        activeTool={activeTool}
+        onFleetUpdate={setFleetData}
+      />
+      <MapClickDeselect setSelectedFleet={setSelectedFleet} />
+      <MapEventHandler
+        activeTool={activeTool}
+        handleCopy={handleCopy}
+        setCoords={setCoords}
+        drawStart={drawStart}
+        setDrawStart={setDrawStart}
+        setLines={setLines}
+        eraseRadius={eraseRadius}
+        isMultiDraw={isMultiDraw}
+      />
+      <CursorManager activeTool={activeTool} />
+      <CoordinateDisplay coords={coords} />
+    </MapContainer>
+        <div
+          className={`nation-tab ${nationSidebarOpen ? 'open' : ''}`}
+          onClick={() => setNationSidebarOpen(prev => !prev)}
+        >
+          ☰
+        </div>
+
+        <div className={`nation-sidebar ${nationSidebarOpen ? 'open' : ''}`}>
+          <div className="nation-sidebar-header">
+            <span>{activeNation || 'Nation Summary'}</span>
+            <button onClick={() => setNationSidebarOpen(false)}>×</button>
+          </div>
+          <div className="nation-sidebar-body">
+            <NationSummaryPanel
+              nationName={activeNation}
+              open={nationSidebarOpen}
+              onClose={() => {
+                setNationSidebarOpen(false);
+                setActiveNation(null);
+              }}
+            />
+          </div>
+        </div>
+        {/* Legend Button */}
+          <div className={`legend-tab ${legendOpen ? 'open' : ''}`} onClick={() => setLegendOpen(o => !o)}>
+            Legend
+          </div>
+
+          {/* Legend Panel */}
+          <div className={`resource-legend ${legendOpen ? 'open' : ''}`}>
+            <img src={resourceLegend} alt="Resource Legend" />
+          </div>
+
+          {/* Marker Tab – must come AFTER legend panel for ~ to work */}
+          <div className="marker-tab" onClick={() => setShowCapitals(v => !v)}>
+            {showCapitals ? 'Hide Capitals' : 'Show Capitals'}
+          </div>
+        {/* SLIDE‑OUT PANEL */}
+        <div className={`resource-legend ${legendOpen ? 'open' : ''}`}>
+          <img src={resourceLegend} alt="Resource Legend" />
+        </div>
     </div>
   );
 };

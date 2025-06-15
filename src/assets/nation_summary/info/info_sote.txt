@@ -1,0 +1,17 @@
+Faction: Army of Gmodism: Sword of the Ecclesiarch (AoG-SotE)
+Capital: The Throne of the Ecclesiarch
+Main Port: 7th Ecclesiastical Shipyards of the Sword
+Color: Gold (#d4af37)
+Motto: Igne Natura Renovatur Integra.
+
+Government: Theocracy. The Empire of Gmodism is an ecclesiarchy and the AoG-SotE are strictly under it.
+
+Head of State: Lord High Admiral and Ecclesiarch Eric of Gmodism Empire. Though Chaplain General Alex Graver is appointed to handle the Sword of the Ecclesiarch's operations. 
+
+Press: The press is the Galactic News, however the AoG-SotE is a military operation for the ecclesiarchy. All information is tightly controlled in the name of imperial safety. 
+
+History: The Sword of the Ecclesiarch is a a force said to be sent on special missions for the Empire of Gmodism, though they conduct themselves mostly independently, relying on divine mandate and holy visions to guide their hand. They have resided locally for ages now, disconnected from the wider empire and operating on their own, lying mostly dormant for untold years in their small territory, utilizing life-extending technology and keeping to themselves. Though recently, the small empire has reactivated, dusting off ancient fabricators and mobilizing to an unknown goal. 
+
+Vehicle Design Theme: The Sword of the Ecclesiarch forces displays ecclesiastical architecture (think gothic churches) with advanced industrial elements typical of the empire. Their smaller vehicles are blocky and rugged
+
+Foreign Policy: The AoG-SotE are pursuing its divine imperial goals with minimal diplomatic engagement. When the Swords forces are present they are on a mission of utmost importance, and  any faction that stands in the way of said goal will be met with fire. 

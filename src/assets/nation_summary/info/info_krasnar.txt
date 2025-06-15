@@ -1,0 +1,12 @@
+Nation:  Provisional Government of Karbarov (Official Name)  Krasnar (De-Facto name)
+Mid-meta, mid tech
+Members:  thequestionmaster, bigbison499 
+Capital: Nauka
+Main port Shtormova Zatoka
+Flag: Bellow
+Government Type: Provisional Government (De Jure), Authoritarian technocratic one-party state under a (semi) benevolent military dictatorship who rules by decree, but they are held accountable only by an independent judiciary (De Facto). 
+The dictator has full control over their military and each district of Krasnar is ruled by a military governor, who answer only to the dictator himself. 
+Head of State: Ian Marlev 
+Press: Restricted; Government-controlled and independent media are only permitted to write "constructive criticism" when they criticize the government and reporting on troop movements, naval maneuvers, the state of civilian and military infrastructure is strictly forbidden. 
+Vehicle design Theme: WW2 ships and Modernized WW2 refits. Plane design is WW2 to early cold war, with unique characteristics due to FTD physics.
+Foreign Policy: Due to domestic tensions and the tense ceasefire with the Confederated States of Zaftra, Krasnar's foreign policy is focused on ensuring that the situation in the Karbarov archipelago is resolved in favorable terms, whether it is victory in war, or a peace deal.

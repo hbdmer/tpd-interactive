@@ -1,0 +1,30 @@
+Starved Coalition,
+Team: @Apostle of the red king @The_Hellcatt @Yog Sothoth @Thiccat 
+
+Faction Lore:
+
+An enigmatic figure knowns as the Red King has emerged from the once tranquil lands of Carcosa. Leading what can only be described as a warband, the cities they visit are left in a sea of blood. Those that survive join them in madness. Their vehicles seem to come from numerous different backgrounds and disciplines, creating a varied and highly dangerous force. 
+
+Their motive and sudden actions are unknown, their goal clear. They will bring war, and we must prepare.
+
+Faction style:
+HIGH meta, low tech. Numerous specialist vehicles making as full use of the rules and resources as possible. Expect vehicles that can pull feats such as tanks that can 1v1 scarabs at half the cost. The range of their designs will be matched by the number of their enemies. This faction IS looking for a fight, and it will get it for better or worse. A wide variety of vehicles will be fielded to represent the numerous factions absorbed by the alliance.
+
+This faction is also highly anti nuclear. 
+
+History: 
+The region of Carcosa was once highly rural area occupied by a number of city states, all of which of varying levels of technologies. However since the Red King's Campaign began, its become highly centralised under his goverment and cult.
+
+Geographic
+Capital: Kadath
+Main Port: Ulthar
+Flag: Attached below
+COLOR: hex #681109, Crimson red, white FTD: white (1,1,1 0.99 alpha) red (0.78, 0, 0 0.4 alpha) #CamoRed2
+
+Political
+Head of State: The Red King
+Government: Monarchy
+War doctrine: Steel
+Nuclear policy: Nonproliferation
+Traits: Hardworking
+Press: Uncensored, however few sources exist within the expanding nation

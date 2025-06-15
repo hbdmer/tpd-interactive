@@ -1,0 +1,12 @@
+Nation: Mandate From Heaven
+Capital: Purgatorium
+Main Port:  Dusk
+
+Flag: attached
+COLOR: #FFD700 (HEX) 255, 215, 0 (RGB)
+Government: Theocracy
+Head of State: God
+Press: Limited about extremely specific topics regarding God's existence, or rather, what God is exactly
+History: three tribes united by their religion have discovered, upon an existencial threat, that their leaders have been using God's will as an excuse to keep power, they were removed by force and replaced by the White Doves.
+Vehicle Design Theme: ships are WW2 hulls modified to be more early/mid cold war. Tanks are pretty much any semi realistic ish tank with a shitton of wood armor and sometimes ERA mixed in, russia and philipines combined
+Foreign Policy: expansionist when it comes to very specific territories, given theyre either their own living grounds usurped or their promised lands

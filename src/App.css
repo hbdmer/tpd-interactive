@@ -13,6 +13,205 @@
 
   --sidebar-offset:  calc(var(--sidebar-width) + var(--sidebar-gutter));
   --coord-offset:    calc(var(--sidebar-offset) + var(--extra-gutter));
+  --legend-width: 400px;
+  --legend-hidden-offset: calc(-1 * var(--legend-width));
+  --nation-sidebar-width: 800px;
+
+}
+
+
+/* TAB BUTTON */
+.legend-tab {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  padding: 6px 12px;
+  background: var(--overlay-bg);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  z-index: 3000;
+  transition: right 0.3s ease;
+}
+.legend-tab.open {
+  right: var(--legend-width);
+}
+
+/* SLIDE‑OUT LEGEND PANEL */
+.resource-legend {
+  position: absolute;
+  top: 20px;
+  right: var(--legend-hidden-offset);   /* start hidden off‑screen */
+  width: var(--legend-width);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transition: right 0.3s ease;
+  z-index: 2999;
+}
+.resource-legend.open {
+  right: 0;
+}
+
+/* make the legend image scale to fit */
+.resource-legend img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.imported-btn-wrapper {
+  position: relative;
+  margin: 4px 0;
+}
+
+.imported-btn-wrapper > button:first-child {
+  width: 100%;
+  padding-right: 28px; /* create space for the delete button */
+  box-sizing: border-box;
+}
+
+.imported-btn-wrapper .delete-btn {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  width: 18px;
+  height: 18px;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1;
+  padding: 0;
+}
+
+.imported-btn-wrapper .delete-btn:hover {
+  background: #cc0000;
+}
+
+
+
+.nation-slide {
+  display: block;
+  max-width: 100%;
+  border-radius: 4px;
+  margin-top: 10px;
+  user-select: none;
+  pointer-events: auto;
+}
+.nation-info {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-top: 10px;
+} 
+
+.marker-tab {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  padding: 6px 12px;
+  background: var(--overlay-bg);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  z-index: 3000;
+  transition: right 0.3s ease;
+}
+.marker-tab.open {
+  right: var(--legend-width);
+}
+
+.nation-tab {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  transform: translate(0%, -50%); /* Fix: bring it into view */
+  background: var(--overlay-bg);
+  border-left: 2px ridge #112130;
+  border-top: 2px ridge #112130;
+  border-bottom: 2px ridge #112130;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+  z-index: 3100; /* ensure it's above most elements */
+  font-size: 1.5rem;
+  transition: right 0.3s ease;
+}
+
+.nation-tab.open {
+  right: 800px; /* must match .nation-sidebar width */
+}
+
+/* Shift top-right buttons when nation-sidebar is open */
+.App.nation-open .marker-tab {
+  right: var(--nation-sidebar-width);
+}
+.App.nation-open .legend-tab {
+  right: var(--nation-sidebar-width);
+}
+.App.nation-open .resource-legend.open {
+  right: var(--nation-sidebar-width);
+}
+.App.nation-open .legend-tab.open {
+  right: calc(var(--nation-sidebar-width) + var(--legend-width));
+}
+.resource-legend.open ~ .marker-tab {
+  right: var(--legend-width);
+}
+.App.nation-open .resource-legend.open ~ .marker-tab {
+  right: calc(var(--legend-width) + var(--nation-sidebar-width));
+}
+.nation-sidebar {
+  position: fixed;
+  top: 0;
+  right: calc(-1 * var(--nation-sidebar-width));
+  width: var(--nation-sidebar-width);
+  height: 100%;
+  background-color: var(--overlay-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 2px ridge #112130;
+  transition: right 0.3s ease;
+  z-index: 3000;
+  overflow: hidden;
+  font-family: 'Eurostile', 'Segoe UI', sans-serif;
+}
+.nation-sidebar.open {
+  right: 0;
+}
+.nation-sidebar-header {
+  background-color: #fff;
+  color: var(--overlay-bg);
+  padding: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nation-sidebar-body {
+  flex: 1;
+  background-color: var(--overlay-bg);
+  padding: 10px;
+  overflow-y: auto;
+  color: #fff;
+  border-left: 2px ridge #112130;
+  border-right: 2px ridge #112130;
+  border-bottom: 2px ridge #112130;
 }
 
 /* Reset and global styles */

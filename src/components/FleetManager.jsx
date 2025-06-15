@@ -60,7 +60,7 @@ const parseFleetData = (raw) => {
   return fleets;
 };
 
-const FleetMarker = ({ fleet, onDrag, selectedFleet, setSelectedFleet }) => {
+const FleetMarker = ({ fleet, onDrag, onDelete, selectedFleet, setSelectedFleet, activeTool }) => {
     const isSelected = selectedFleet?.name === fleet.name;
   
     const [endPos, setEndPos] = useState([fleet.y, fleet.x]);
@@ -80,40 +80,15 @@ const FleetMarker = ({ fleet, onDrag, selectedFleet, setSelectedFleet }) => {
     }, [fleet]);
   
     const distance = (a, b) => Math.hypot(b[1] - a[1], b[0] - a[0]);
-  
-    const handleMidDrag = (e) => {
-        const { lat, lng } = e.target.getLatLng();
-        const dist = distance([fleet.yStart, fleet.xStart], [lat, lng]);
-      
-        let midLat = lat;
-        let midLng = lng;
-      
-        if (dist > fleet.range) {
-          const angle = Math.atan2(lat - fleet.yStart, lng - fleet.xStart);
-          midLat = fleet.yStart + Math.sin(angle) * fleet.range;
-          midLng = fleet.xStart + Math.cos(angle) * fleet.range;
-        }
-      
-        setMidPos([midLat, midLng]);
-      
-        // Recompute remaining range from midpoint to endpoint
-        const remainingRange = fleet.range - distance([fleet.yStart, fleet.xStart], [midLat, midLng]);
-        const distToEnd = distance([midLat, midLng], endPos);
-      
-        let newEnd = [...endPos];
-      
-        if (distToEnd > remainingRange) {
-          const angle = Math.atan2(endPos[0] - midLat, endPos[1] - midLng);
-          newEnd = [
-            midLat + Math.sin(angle) * remainingRange,
-            midLng + Math.cos(angle) * remainingRange,
-          ];
-          setEndPos(newEnd);
-        }
-      
-        onDrag(fleet.name, newEnd[0], newEnd[1], midLat, midLng);
-      };
-  
+    
+    const handleClick = () => {
+      if (activeTool === 'delete') {
+        onDelete(fleet.name);
+      } else {
+        setSelectedFleet(fleet);
+      }
+    };
+    
     const handleEndDrag = (e) => {
       const { lat, lng } = e.target.getLatLng();
       const anchor = midPos || [fleet.yStart, fleet.xStart];
@@ -133,7 +108,7 @@ const FleetMarker = ({ fleet, onDrag, selectedFleet, setSelectedFleet }) => {
       setEndPos(final);
       onDrag(fleet.name, final[0], final[1], midPos?.[0] ?? null, midPos?.[1] ?? null);
     };
-  
+    
     const pathPoints = midPos
       ? [[fleet.yStart, fleet.xStart], midPos, endPos]
       : [[fleet.yStart, fleet.xStart], endPos];
@@ -146,9 +121,12 @@ const FleetMarker = ({ fleet, onDrag, selectedFleet, setSelectedFleet }) => {
         <Marker
           position={endPos}
           icon={fleetIcon}
-          draggable
+          draggable={activeTool !== 'delete'}
           eventHandlers={{
-            click: () => setSelectedFleet(fleet),
+            click: () => {
+              if (activeTool === 'erase') onDelete(fleet.name);
+              else setSelectedFleet(fleet);
+            },
             dragstart: () => setSelectedFleet(fleet),
             dragend: handleEndDrag,
           }}
@@ -158,67 +136,68 @@ const FleetMarker = ({ fleet, onDrag, selectedFleet, setSelectedFleet }) => {
             End: ({endPos[1].toFixed(0)}, {endPos[0].toFixed(0)})
           </Popup>
         </Marker>
-  
+    
         {/* MIDPOINT Marker */}
         {fleet.midpointActive && midPos && (
-            <Marker
-                position={midPos}
-                icon={fleetIcon2}
-                draggable
-                eventHandlers={{
-                click: () => setSelectedFleet(fleet),
-                dragend: (e) => {
-                    const { lat, lng } = e.target.getLatLng();
-                    const dist = distance([fleet.yStart, fleet.xStart], [lat, lng]);
-
-                    let midLat = lat;
-                    let midLng = lng;
-
-                    if (dist > fleet.range) {
-                    const angle = Math.atan2(lat - fleet.yStart, lng - fleet.xStart);
-                    midLat = fleet.yStart + Math.sin(angle) * fleet.range;
-                    midLng = fleet.xStart + Math.cos(angle) * fleet.range;
-                    }
-
-                    setMidPos([midLat, midLng]);
-
-                    // Update endpoint if out of range
-                    const remaining = fleet.range - distance([fleet.yStart, fleet.xStart], [midLat, midLng]);
-                    const distToEnd = distance([midLat, midLng], endPos);
-                    let newEnd = [...endPos];
-
-                    if (distToEnd > remaining) {
-                    const angle = Math.atan2(endPos[0] - midLat, endPos[1] - midLng);
-                    newEnd = [
-                        midLat + Math.sin(angle) * remaining,
-                        midLng + Math.cos(angle) * remaining,
-                    ];
-                    setEndPos(newEnd);
-                    }
-
-                    // Update fleet state and selectedFleet
-                    onDrag(fleet.name, newEnd[0], newEnd[1], midLat, midLng);
-                    setSelectedFleet((prev) =>
-                    prev?.name === fleet.name
-                        ? { ...prev, xMid: midLng, yMid: midLat, x: newEnd[1], y: newEnd[0] }
-                        : prev
-                    );
-                },
-                }}
-                >
-                <Popup>
-                    <strong>{fleet.name}</strong><br />
-                    Mid: ({midPos[1].toFixed(0)}, {midPos[0].toFixed(0)})
-                </Popup>
-            </Marker>
-            )}
-  
+          <Marker
+            position={midPos}
+            icon={fleetIcon2}
+            draggable={activeTool !== 'delete'}
+            eventHandlers={{
+              click: () => {
+                if (activeTool === 'erase') onDelete(fleet.name);
+                else setSelectedFleet(fleet);
+              },
+              dragend: (e) => {
+                const { lat, lng } = e.target.getLatLng();
+                const dist = distance([fleet.yStart, fleet.xStart], [lat, lng]);
+    
+                let midLat = lat;
+                let midLng = lng;
+    
+                if (dist > fleet.range) {
+                  const angle = Math.atan2(lat - fleet.yStart, lng - fleet.xStart);
+                  midLat = fleet.yStart + Math.sin(angle) * fleet.range;
+                  midLng = fleet.xStart + Math.cos(angle) * fleet.range;
+                }
+    
+                setMidPos([midLat, midLng]);
+    
+                const remaining = fleet.range - distance([fleet.yStart, fleet.xStart], [midLat, midLng]);
+                const distToEnd = distance([midLat, midLng], endPos);
+                let newEnd = [...endPos];
+    
+                if (distToEnd > remaining) {
+                  const angle = Math.atan2(endPos[0] - midLat, endPos[1] - midLng);
+                  newEnd = [
+                    midLat + Math.sin(angle) * remaining,
+                    midLng + Math.cos(angle) * remaining,
+                  ];
+                  setEndPos(newEnd);
+                }
+    
+                onDrag(fleet.name, newEnd[0], newEnd[1], midLat, midLng);
+                setSelectedFleet((prev) =>
+                  prev?.name === fleet.name
+                    ? { ...prev, xMid: midLng, yMid: midLat, x: newEnd[1], y: newEnd[0] }
+                    : prev
+                );
+              },
+            }}
+          >
+            <Popup>
+              <strong>{fleet.name}</strong><br />
+              Mid: ({midPos[1].toFixed(0)}, {midPos[0].toFixed(0)})
+            </Popup>
+          </Marker>
+        )}
+    
         {/* Path Line */}
         <Polyline
           positions={pathPoints}
           pathOptions={{ color: 'white', dashArray: '4', weight: 1 }}
         />
-  
+    
         {/* Range Circles */}
         {isSelected && (
           <Circle
@@ -235,10 +214,10 @@ const FleetMarker = ({ fleet, onDrag, selectedFleet, setSelectedFleet }) => {
           />
         )}
       </>
-    );
+    );    
   };
 
-export default function FleetMapApp({ importText, selectedFleet, setSelectedFleet }) {
+export default function FleetMapApp({ importText, selectedFleet, setSelectedFleet, activeTool, onFleetUpdate}) {
   const [fleets, setFleets] = useState([]);
 
   useEffect(() => {
@@ -272,6 +251,15 @@ export default function FleetMapApp({ importText, selectedFleet, setSelectedFlee
       );
     }
   }, [selectedFleet]);
+
+  useEffect(() => {
+    onFleetUpdate?.(fleets); // optional chaining in case prop is not passed
+  }, [fleets, onFleetUpdate]);
+
+  const handleDelete = (name) => {
+    setFleets(prev => prev.filter(f => f.name !== name));
+    setSelectedFleet(prev => (prev?.name === name ? null : prev));
+  };
 
   const handleDragUpdate = (name, lat, lng, yMid = null, xMid = null) => {
     setFleets(prev =>
@@ -316,8 +304,6 @@ export default function FleetMapApp({ importText, selectedFleet, setSelectedFlee
     );
   };
 
-  
-
   return (
     <>
       {fleets.map(f => (
@@ -325,8 +311,10 @@ export default function FleetMapApp({ importText, selectedFleet, setSelectedFlee
           key={f.name}
           fleet={f}
           onDrag={handleDragUpdate}
+          onDelete={handleDelete}
           selectedFleet={selectedFleet}
           setSelectedFleet={setSelectedFleet}
+          activeTool={activeTool}
         />
       ))}
     </>

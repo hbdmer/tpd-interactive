@@ -1,0 +1,8 @@
+Nation: R.E.L.I.C
+Capital: Yggdrasil
+Flag: pending
+Colour: HEX: #ff4b19, RGB: 255,75,25
+Government: Gestalt consciousness composed of fragments of an ancient ai superintelligence and a sentient, tree, thing. Additionally many tribes of slightly gene-modded humans living on/in the tree and the craft, most of them revere the tree as their god.
+History/Lore Primer: The [DATA CORRUPTED] caused the fall of the [DATA CORRUPTED], a highly advanced nation, whose last unburied remnant surviving to this age was the culmination of their research into gene editing - a massive tree-like being whose sap has incredible potential for gene manipulation. Both sentient and sapient, and complete with a full nervous system, it can emit/listen to radio waves, allowing for communication and control. Various tribes live upon and around it, all of whom revere it as a god, consuming small bits of its sap as a coming of age ritual, bestowing each tribe with assorted "gifts". These gifts generally consist of strongly enhancing the expression a certain trait, like intelligence or strength, though not without consequence. Said tribes function as caretakers for the tree and the vehicles, acting as an external immune system to help keep it healthy.
+Vehicle Design Theme: Craft are a mess of high tech/near future parts melded together with tumorous growths of wood and bone. Examples attached below
+Foreign Policy: c u r i o u s

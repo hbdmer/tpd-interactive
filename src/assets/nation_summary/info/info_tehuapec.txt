@@ -1,0 +1,18 @@
+Nation: Federacion Tehuapec
+Capital: Tepetl-Altepetl
+Main Port: Totomac
+
+Flag: attached
+COLOR: B780B7 (HEX) 183, 128, 183 (RGB)
+Government: Theocratic City-State Confederation
+
+Each Temple-City which makes up the confederation has varying degrees of local autonomy (ruled by one of our members) in day to day affairs, but all ruler-priests yield to the Solar Cult's leadership in their mountain temple-stronghold of Tepetl-Altepetl when it comes to matters of religion, war, and foreign affairs. You can think of the Confederation as a sort of forum which serves as a peaceful way of resolving disputes and fostering cooperation between the temple-cities. With the Solar Cult acting as the official unofficial face for foreign diplomacy. 
+
+HOS: High Priest Looks-Sternly
+Press: Predominantly Local
+
+History: 
+The Federacion began as isolated island tribes scratching out meagre existences along the rocky islands of Tehua. With time, these tribes develop into more complex societies and began to strike out into the waters of the region. The coastal sea's between the islands quickly became busy with merchant ships and fisherman bringing goods, ideas, and people between the islands. This status quo continued for many years, allowing religion, sciences, and culture to flourish. It is in this relatively peaceful setting which allowed for local beliefs to be gradually assimilated into a more or less cohesive regional spiritual system, which paved the common ground for the islands to unite into a single political entity peacefully.
+
+Vehicle Design Theme: Ships resemble floating pyramids mixed with ships. Mesoamerican and Andean influences. Lots of Fire, Lots of CRAM, a lot of wood and stone.
+Foreign Policy: Isolationist, Defensive

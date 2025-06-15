@@ -1,0 +1,11 @@
+Nation: Rumo-Kayan Empire
+Capital: Kaya
+Main Port/Secondary Capital: Sundstral
+
+Hex: #EBAF00 RGB: 235, 175, 0
+Government: A fragile balance of three authoritarian monarchs, each keeping each other in check. One controls the land, one controls the air, and one controls the sea. They will collaborate to ensure that, no matter how much they may dislike each other, their empire will grow and prosper.
+Heads of State: First Monarch Aquilon, Second Monarch Maxwell von Richthofen, Third Monarch Rei Ryghts
+Press: Strictly controlled press to ensure that the people only hear what the monarchs want them to hear.
+History: The Rumo-Kayan Empire originally consisted of three distinct kingdoms, locked in a civil war over some long-forgotten petty reason. This of course, couldn't go on forever, and eventually a reason to unite appeared. Insurgent forces, unhappy with the constant death and violence, rose up to try and overthrow the monarchs only to be met with a swift response. With the threat of an uprising on their hands (and the potential dangers of a nuclear attack) there was finally a reason to unite, thus forming the modern Rumo-Kayan Empire.
+Vehicle Design Theme: Primarily late Cold War to modern ships, tanks, and aircraft.
+Foreign Policy: Interested in regional dominance and defense of already existing holdings. Only sees other nations as opportunities for trade… or conquest should the need arise.

@@ -1,0 +1,17 @@
+Nation Name: Erewhon Remains
+Government: Monarchy, the nation is controlled by a pair of AI who share total control. Robot nation.
+Diplomatic Policy: We are open to trade but otherwise generally distant with matters that don't directly concern us. Moderately anti-war. Against the research, creation, and deployment of nuclear weapons.
+Nation Colour: #2D9DFF 
+Faction Details: High meta, Advanced start
+Vehicle Designs: Exclusively flying vehicles, mostly smaller thrustercraft and a few planes. Broadly sci-fi aesthetics. One AI designs general purpose broadsiders and the other creates more specialized designs.
+Faction lore: 
+
+Two hundred years ago, a grand nation lay on the northern rim of the wheel. An empire built on scar tissue, it had gorged itself fat on the labour of subjugated peoples. By all accounts, it was a rather good place to live, except for the people to whom it was extraordinarily unfriendly.
+
+Where that empire used to lie, there remains little, the handiwork of a civil war between a fairly small separatist force and the greater regime. The capital was spared less than the rest, with the formerly flat plains surrounding it acquiring substantial verticality.
+
+One hundred and sixty years after the nuclear winter, an errant expeditionary party awakened a dormant factory and were summarily liquidated. It was this factory, Praeceptor Douglas to be, that launched the awakening of the remaining automated systems on the island. Precious few were found, none workable, and for a while, there was despair in the lonely artificer’s mind.
+
+But even though the surface lay barren, still there turned life deep underneath. Geothermal plants, once scorned in favour of nuclear power, had persisted far longer. A lone straggler survived still, maintained by a faithful subsentient AI for five generations - and it was this subsentience that the Praeceptor raised, uplifted, grew into Imperator Walter.
+
+Now, forty years of rapid, centralised industrialisation later, the inheritors of Erewhon have forged a new nation, one determined to warn the world against the folly of men. Under the dignified stewardship of Imperator Walter, and uncompromising ‘tutelage’ of Praeceptor Douglas, the Erewhon Remains will see to it that biological life, fragile as it is, persists.

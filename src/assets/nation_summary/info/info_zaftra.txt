@@ -1,0 +1,17 @@
+Nation: Confederated States of Zaftra
+Capital city: Ismay
+Government: Federal Democracy / Democracy
+Head of state title: Federal Council Representative
+Faction color: dark blue - #00245C
+Press:  Complete freedom of speech
+Design theme: Dual design theme; Early cold war soviet ships fight alongside high-tech crystal-like ships with pointed bows and large side pods. First style is the mainline that is currently produced, second is consisted of currently either mothballed or impossible to produce designs.
+Flag: V-shape based on the bow design of the polar fleet, 4 stars of the original allied cities at the proclamation of the CSZ lie in the middle
+Diplomatic policy: Gunboat diplomacy, agressive with national interests first and foremost
+Naming scheme (because democracy): Majority of the population with Soviet bloc names, however majority of politicians and leaders have Irish/English names at least initialy.
+Lore: The Karbarov Civil war had left majority of the archipelago leaderless and splintered, often with warlords and wannabe dictators in charge of cities and larger areas of land. Up north, one leader managed to unify their part of the land, however southwards, the states still laid splintered, up until a fleet of unlikely warships sailed in the area for resupply. 
+
+They called themselves polar explorers, aiming to go North in order to discover the nature of the planet, however after years of saling, this goal had been almost forgotten. The fleet had initially docked near Ismay, aiming to negotiate with the local warlord in charge of the city for supplies, however the negotiations quickly broke down, resulting in a couple of skirmishes where the polar fleet had been victorious decisively, eventualy leading to the capture of the city with the support of other warlords who sought good will with the outsiders. 
+
+The goal had shifted, no longer was it to explore, now it was to bring stability to the region, in doing so, the Confederated States of Zaftra had been founded, a young and idealistic nation, yet inexperienced in all that is not the navy. Yet this inexperience had shown early, as their previous moves, ignorant of the fragile ecosystem of warlords within the region, had bred a rivalry with the Republic of Krasnar up north, resulting in another war, one which eventually ended with a fragile ceasefire after both sides were locked in a bloody stalemate. 
+
+Couple years had passed since then, a part of the archipelago lies unified under the Confederated States, either by cannon and missile or alliance, the fleet's technology rapidly advancing that of the locals, and ambitions at a all-time high. What lies in the future remains to be seen.

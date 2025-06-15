@@ -1,0 +1,25 @@
+    4010 250 Erewhon
+    6575 5157 Rumo Kayan Empire
+    5215 2200 R.E.L.I.C
+    4000 1300 Eternal City, Mabarrabha
+    3720 5450 Confederated States of Zaftra
+    5500 5725 Dust Bunnies
+    4093 4168 Provisional Government of Karbarov (Krasnar)
+    7119 3330 Eternal Kingdom of Mjalltir
+    5690 1000 BlueRock Investment Company (BRIC)
+    1380 2980 Federated Commonwealth of Merland and Romaine
+    1566 4289 The Chorus Collective
+    5323 3696 Vltavan Brotherhood
+    569 4549 Auldric Crown
+    6000 5050 Mandate From Heaven
+    2506 5230 Sea Dogs Fellowship
+    6180 5650 EoN Hive
+    3978 3556 Sector 7
+    3032 350 Starved Coalition
+    6673 1647 Fissionistic Contingence
+    979 5592 Ionian Kingdom
+    1373 835 Zanicxl, the River Kingdom
+    2256 204 Sandstorm Horde
+    2800 2450 Federacion Tehuapec
+    7048 3608 Umamusume Regional Accord
+    4044 1936 Sword of the Ecclesiarch
