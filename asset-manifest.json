@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/gp1203test/static/css/main.d158fdfd.css",
-    "main.js": "/gp1203test/static/js/main.4ea0325d.js",
+    "main.js": "/gp1203test/static/js/main.a0944817.js",
     "static/js/453.68693753.chunk.js": "/gp1203test/static/js/453.68693753.chunk.js",
     "static/media/map8.png": "/gp1203test/static/media/map8.d4cbb8f1c5e4d1d727c2.png",
+    "static/media/map9.png": "/gp1203test/static/media/map9.54fe1319d5cb3cfe4c42.png",
     "static/media/map7.png": "/gp1203test/static/media/map7.120bb046ea14df9d5b95.png",
     "static/media/map6.png": "/gp1203test/static/media/map6.27b969daededa6bd2796.png",
     "static/media/map5.png": "/gp1203test/static/media/map5.8026c1ce05afc3d9a49a.png",
@@ -12,6 +13,7 @@
     "static/media/map2.png": "/gp1203test/static/media/map2.9aa8936d5e227355a2e3.png",
     "static/media/map1.png": "/gp1203test/static/media/map1.e56b870cc749e16917d7.png",
     "static/media/map0.png": "/gp1203test/static/media/map0.3b23509d37d276f6f1f2.png",
+    "static/media/cmap9.png": "/gp1203test/static/media/cmap9.7eab21d9121053e34dd3.png",
     "static/media/map3_cities.png": "/gp1203test/static/media/map3_cities.47a5cde5e1c5de810840.png",
     "static/media/map2_cities.png": "/gp1203test/static/media/map2_cities.1daa2bef1353dcc00e86.png",
     "static/media/popmap.png": "/gp1203test/static/media/popmap.694e831cc14fde1cce8f.png",
@@ -46,6 +48,7 @@
     "static/media/ns_uma.png": "/gp1203test/static/media/ns_uma.0c833eead4c173eb79a0.png",
     "static/media/ns_fission.png": "/gp1203test/static/media/ns_fission.ab72313c3351bae8d00c.png",
     "static/media/ns_mjalltir.png": "/gp1203test/static/media/ns_mjalltir.51e92a94f9372d981737.png",
+    "static/media/nationmap9.png": "/gp1203test/static/media/nationmap9.3eb309e00258a12b1b02.png",
     "static/media/GoAllons.png": "/gp1203test/static/media/GoAllons.7324ef54b9ca829613c0.png",
     "static/media/eurostile.TTF": "/gp1203test/static/media/eurostile.5c0b25e4fd3c37eb2d7d.TTF",
     "static/media/Resource_legend.png": "/gp1203test/static/media/Resource_legend.33432e0e5a23e4a8217d.png",
@@ -53,11 +56,11 @@
     "index.html": "/gp1203test/index.html",
     "static/media/cross.ico": "/gp1203test/static/media/cross.48b3858dc1d8974f30e4.ico",
     "main.d158fdfd.css.map": "/gp1203test/static/css/main.d158fdfd.css.map",
-    "main.4ea0325d.js.map": "/gp1203test/static/js/main.4ea0325d.js.map",
+    "main.a0944817.js.map": "/gp1203test/static/js/main.a0944817.js.map",
     "453.68693753.chunk.js.map": "/gp1203test/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d158fdfd.css",
-    "static/js/main.4ea0325d.js"
+    "static/js/main.a0944817.js"
   ]
 }
