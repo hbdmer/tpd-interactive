@@ -315,7 +315,7 @@ const App = () => {
               )}
                 <div className="mt-4 text-sm bg-black bg-opacity-30 text-white p-3 border border-white rounded">
                   {/* existing fleet info UI ... */}
-
+                  
                   {/* New: Scrollable fleet list table */}
                   <div className="mt-6">
                     <label className="block font-bold mb-2"><br />All Fleets End Positions:</label>
