@@ -12,6 +12,6 @@ This is the official interactive website for the **The Promethean Directive**, a
 
 This site is actively being updated alongside game turns. Some features may change or expand as the game progresses.
 
-## 📫 Contact
+##  Contact
 
 For bugs, suggestions, or updates, contact me at ahabdmer@gmail.com.

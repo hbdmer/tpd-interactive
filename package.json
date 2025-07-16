@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://hoiboi.github.io/gp1203test/",
+  "homepage": "https://hoiboi.github.io/tpd-interactive/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
