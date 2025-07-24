@@ -118,6 +118,7 @@ const App = () => {
         MAPS={MAPS}
         TURN_MAPS={TURN_MAPS}
         importedMaps={importedMaps}
+        setImportedMaps={setImportedMaps}
 
         fleetImportText={fleetImportText}
         setFleetImportText={setFleetImportText}

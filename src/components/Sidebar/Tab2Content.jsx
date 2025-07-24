@@ -16,7 +16,7 @@ export default function Tab2Content({
             const midY = f.midpointActive && f.yMid != null ? Math.round(f.yMid) : '';
             const endX = Math.round(f.x);
             const endY = Math.round(f.y);
-            return `${f.name}\t${midX}\t${midY}\t${endX}\t${endY}`;
+            return `${midX}\t${midY}\t${endX}\t${endY}`;
         });
         const text = lines.join('\n');
         navigator.clipboard.writeText(text).then(
