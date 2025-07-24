@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tpd-interactive/static/css/main.6acd38e3.css",
-    "main.js": "/tpd-interactive/static/js/main.6be161cf.js",
+    "main.js": "/tpd-interactive/static/js/main.8ca86d15.js",
     "static/js/453.68693753.chunk.js": "/tpd-interactive/static/js/453.68693753.chunk.js",
     "static/media/map12.png": "/tpd-interactive/static/media/map12.74f4a7cfeeb8ca837ec5.png",
     "static/media/map11.png": "/tpd-interactive/static/media/map11.51d6268448999a5cdaa8.png",
@@ -22,7 +22,7 @@
     "static/media/popmap.png": "/tpd-interactive/static/media/popmap.694e831cc14fde1cce8f.png",
     "static/media/map00_cities.png": "/tpd-interactive/static/media/map00_cities.598209e4d8b2174d45b1.png",
     "static/media/farmmap.png": "/tpd-interactive/static/media/farmmap.e3a07e9e18fbc4585bcd.png",
-    "static/media/resmap.png": "/tpd-interactive/static/media/resmap.bc7c666128fac987e9c4.png",
+    "static/media/resmap.png": "/tpd-interactive/static/media/resmap.3c21c20b7f8625dd748f.png",
     "static/media/nationmap.png": "/tpd-interactive/static/media/nationmap.9e77eb1104ceddec7a17.png",
     "static/media/ns_RumoKaya.png": "/tpd-interactive/static/media/ns_RumoKaya.21a830dce7af5caef4c3.png",
     "static/media/ns_bnuuy.png": "/tpd-interactive/static/media/ns_bnuuy.8eab8817db388726fd25.png",
@@ -59,11 +59,11 @@
     "index.html": "/tpd-interactive/index.html",
     "static/media/cross.ico": "/tpd-interactive/static/media/cross.48b3858dc1d8974f30e4.ico",
     "main.6acd38e3.css.map": "/tpd-interactive/static/css/main.6acd38e3.css.map",
-    "main.6be161cf.js.map": "/tpd-interactive/static/js/main.6be161cf.js.map",
+    "main.8ca86d15.js.map": "/tpd-interactive/static/js/main.8ca86d15.js.map",
     "453.68693753.chunk.js.map": "/tpd-interactive/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6acd38e3.css",
-    "static/js/main.6be161cf.js"
+    "static/js/main.8ca86d15.js"
   ]
 }
