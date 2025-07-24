@@ -1,0 +1,32 @@
+/* Tabs row inside the header */
+.sidebar-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+
+/* Individual tab buttons */
+.sidebar-tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 5px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: 'Eurostile', sans-serif;
+}
+
+/* Hover & active states */
+.sidebar-tab-btn:hover,
+.sidebar-tab-btn.active {
+  background-color: #ddd;
+}
+
+/* If you have an <img className="tab-icon"> inside each button */
+.tab-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}

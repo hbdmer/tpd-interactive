@@ -1,0 +1,75 @@
+/* src/components/LegendPanel.css */
+
+/* TAB BUTTON */
+.legend-tab {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  padding: 6px 12px;
+  background: var(--bg-main);
+  color: var(--bg-white);
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  transition: right 0.3s ease;
+  z-index: 3000;
+}
+
+/* OPEN STATES */
+.legend-tab.open,
+.legend-tab--open {
+  right: var(--legend-width);
+}
+
+/* SHIFT RIGHT when nation‑sidebar is open */
+.legend-tab--shift-nation {
+  right: var(--nation-sidebar-width);
+}
+
+/* GLOBAL APP‑LEVEL OVERRIDES */
+.App.nation-open .legend-tab {
+  right: var(--nation-sidebar-width);
+}
+
+.App.nation-open .legend-tab.open {
+  right: calc(var(--nation-sidebar-width) + var(--legend-width));
+}
+
+
+/* SLIDE‑OUT LEGEND PANEL */
+.resource-legend {
+  position: absolute;
+  top: 20px;
+  right: calc(-1 * var(--legend-width));
+  width: var(--legend-width);
+  background: var(--bg-white);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--bg-main);
+  overflow: hidden;
+  transition: right 0.3s ease;
+  z-index: 2999;
+}
+
+/* OPEN STATES */
+.resource-legend.open,
+.resource-legend--open {
+  right: 0;
+}
+
+/* SHIFT RIGHT when open & nation‑sidebar is open */
+.resource-legend--shift-nation {
+  right: calc(var(--nation-sidebar-width) + var(--legend-width));
+}
+
+/* GLOBAL APP‑LEVEL OVERRIDES */
+.App.nation-open .resource-legend.open {
+  right: var(--nation-sidebar-width);
+}
+
+/* make the legend image scale to fit */
+.resource-legend img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

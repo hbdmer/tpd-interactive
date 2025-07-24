@@ -1,0 +1,36 @@
+/* MARKER TAB */
+.marker-tab {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  padding: 6px 12px;
+  background: var(--bg-main);
+  color: var(--bg-white);
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  transition: right 0.3s ease;
+  z-index: 3000;
+}
+
+/* OPEN STATE */
+.marker-tab.open {
+  right: var(--legend-width);
+}
+
+/* SHIFT WHEN LEGEND IS OPEN */
+.resource-legend.open ~ .marker-tab {
+  right: var(--legend-width);
+}
+
+/* SHIFT WHEN NATION SIDEBAR IS OPEN */
+.App.nation-open .marker-tab,
+.marker-tab--shift-nation {
+  right: var(--nation-sidebar-width);
+}
+
+/* COMBINED SHIFT WHEN BOTH LEGEND & NATION ARE OPEN */
+.App.nation-open .resource-legend.open ~ .marker-tab {
+  right: calc(var(--legend-width) + var(--nation-sidebar-width));
+}

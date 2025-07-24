@@ -1,0 +1,12 @@
+:root {
+  --sidebar-width: 300px;    /* your sidebar’s width */
+  --sidebar-gutter: 5px;    /* space between sidebar and UI element */
+  --extra-gutter: 70px;    /* space between sidebar and UI element */
+
+  --sidebar-offset:  calc(var(--sidebar-width) + var(--sidebar-gutter));
+  --coord-offset:    calc(var(--sidebar-offset) + var(--extra-gutter));
+  --legend-width: 400px;
+  --legend-hidden-offset: calc(-1 * var(--legend-width));
+  --nation-sidebar-width: 800px;
+
+}

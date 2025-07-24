@@ -1,0 +1,21 @@
+/* src/styles/globals.css */
+@font-face {
+  font-family: 'Eurostile';
+  src: url('../assets/fonts/eurostile.TTF') format('truetype');
+}
+:root {
+  --bg-main: rgba(0, 0, 0, 0.7);
+  --bg-white: rgba(255, 255, 255, 1);
+  --hover-main: rgba(255, 255, 255, 0.1);
+
+  --border-style: 2px ridge #112130;
+  --sidebar-width: 300px;
+  
+}
+html, body {
+  margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden;
+}
+body {
+  font-family: 'Eurostile', sans-serif;
+  background: #233c55;
+}
