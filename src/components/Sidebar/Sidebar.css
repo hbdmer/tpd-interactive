@@ -126,3 +126,11 @@
   font-size: 0.9rem;
   border-top: 1px solid gray;
 }
+
+/* Mobile: larger sidebar toggle for easier tapping */
+@media (max-width: 600px) {
+  .sidebar-tab {
+    padding: 12px 10px;    /* bigger hit area */
+    font-size: 2rem;       /* larger icon/text */
+  }
+}

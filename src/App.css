@@ -126,11 +126,36 @@ body {
   position: relative;
 }
 .turnmap-list {
+  display: block;          /* make sure it’s a block so height applies */
+  max-height: 35vh;       /* or whatever height you need */
+  overflow-y: auto;        /* enable vertical scrollbar when content overflows */
   margin-top: 5px;
-  display: block;
 }
 .turnmap-group:hover .turnmap-list {
   display: block;
+}
+
+/* width of the entire scrollbar */
+.turnmap-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* track (background) */
+.turnmap-list::-webkit-scrollbar-track {
+  background: var(--bg-main);
+  border-radius: 4px;
+}
+
+/* thumb (the draggable piece) */
+.turnmap-list::-webkit-scrollbar-thumb {
+  background: var(--hover-main);
+  border-radius: 4px;
+  border: 2px solid var(--bg-main); /* create some padding around the thumb */
+}
+
+/* thumb on hover */
+.turnmap-list::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-white);
 }
 
 /*————————————
