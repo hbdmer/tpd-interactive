@@ -30,3 +30,51 @@
   height: 24px;
   object-fit: contain;
 }
+
+/* Shared button styles */
+.sidebar-action-btn {
+  display: inline-block;
+  margin-right: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding: 0.2rem 0.5rem;
+  font-family: 'Eurostile', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border:  var( --border-style);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+/* Primary (Import) */
+.sidebar-action-btn--import {
+  background-color: var(--bg-main);
+  color: #fff;
+  border-color: var(--hover-main);
+}
+.sidebar-action-btn--import:hover {
+  background-color: var(--hover-main);
+  border-color: var(--hover-main);
+}
+
+/* Success (Copy All) */
+.sidebar-action-btn--copy {
+  background-color: var(--bg-main);
+  color: #fff;
+  border-color: var(--hover-main);
+}
+.sidebar-action-btn--copy:hover {
+  background-color: var(--hover-main);
+  border-color: var(--hover-main);
+}
+
+.sidebar-action-btn--midpoint {
+   background-color: var(--bg-main);
+  color: #fff;
+  border-color: var(--hover-main);
+}
+.sidebar-action-btn--midpoint:hover {
+  background-color: var(--hover-main);
+  border-color: var(--hover-main);
+}

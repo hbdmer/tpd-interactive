@@ -126,7 +126,7 @@ body {
   position: relative;
 }
 .turnmap-list {
-  display: block;          /* make sure it’s a block so height applies */
+  display: block;         /* make sure it’s a block so height applies */
   max-height: 35vh;       /* or whatever height you need */
   overflow-y: auto;        /* enable vertical scrollbar when content overflows */
   margin-top: 5px;

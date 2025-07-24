@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 const CoordinateDisplay = memo(({ coords }) => (
   <div className="coordinate-display">Coordinates: {coords.x}, {coords.y}</div>

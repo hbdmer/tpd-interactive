@@ -1,19 +1,18 @@
 // src/App.jsx
-import { useState} from 'react';
+import { useState } from 'react';
 import {
   MapContainer,
   ImageOverlay,
   Marker,
   Popup,
   Polyline,
-  useMapEvent,
   Tooltip,
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 // Assets
-import mapDefault from './assets/map/nationmap.png';
+import mapClaim from './assets/map/nationmap.png';
 import mapBiome from './assets/map/biomemap.png';
 import mapFarm from './assets/map/farmmap.png';
 import mapPop from './assets/map/popmap.png';
@@ -33,8 +32,8 @@ import CoordinateDisplay from './components/Map/CoordinateDisplay';
 import NationSummary from './components/Nation/NationSummary';
 import NationSummaryPanel from './components/Nation/NationSummaryPanel';
 import NationSidebar from './components/NationSidebar/NationSidebar';
-import LegendPanel    from './components/LegendPanel/LegendPanel';
-import MarkerToggle   from './components/MarkerToggle/MarkerToggle';
+import LegendPanel from './components/LegendPanel/LegendPanel';
+import MarkerToggle from './components/MarkerToggle/MarkerToggle';
 
 // Constants
 const bounds = [[0, 0], [6000, 8000]];
@@ -53,7 +52,7 @@ const TURN_MAPS = turnCtx.keys().sort().reduce((acc, file) => {
 }, {});
 
 const MAPS = {
-  Claims: mapDefault,
+  Claims: mapClaim,
   Biome: mapBiome,
   Arability: mapFarm,
   Population: mapPop,
@@ -62,12 +61,21 @@ const MAPS = {
   ...TURN_MAPS,
 };
 
+const mapKeys = Object
+  .keys(TURN_MAPS)
+  .filter(k => /^map\d+$/.test(k));  // only map00, map01, … map12
+
+const sorted = mapKeys
+  .map(k => ({ key: k, num: parseInt(k.replace('map',''), 10) }))
+  .sort((a, b) => b.num - a.num);
+
+const latestMapKey = sorted[0]?.key;
+
 const App = () => {
   // UI toggles
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeSidebarTab, setActiveSidebarTab] = useState('tab1');
   const [legendOpen, setLegendOpen] = useState(false);
-  const [nationOpen, setNationOpen] = useState(false);
 
   const [nationSidebarOpen, setNationSidebarOpen] = useState(false);
 
@@ -94,8 +102,11 @@ const App = () => {
 
   // Maps
   const [importedMaps, setImportedMaps] = useState([]);
-  const [selectedMap, setSelectedMap] = useState('Claims');
-  const [showCapitals, setShowCapitals] = useState(true);
+  const [selectedMap, setSelectedMap] = useState(
+    // use the latest turn if one exists, otherwise default to "Claims"
+    latestMapKey || 'Claims'
+  );
+  const [showCapitals, setShowCapitals] = useState(false);
 
   // Toast
   const [toastMsg, setToastMsg] = useState('');

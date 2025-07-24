@@ -35,7 +35,7 @@ export default function Tab2Content({
                 placeholder="Paste fleet data here..."
             />
             <button
-                className="mt-2 px-4 py-2 bg-blue-600 text-white rounded"
+                className="sidebar-action-btn sidebar-action-btn--import"
                 onClick={() => setFleetImportTrigger(fleetImportText)}
             >
                 Import Fleets
@@ -102,7 +102,7 @@ export default function Tab2Content({
                         ) : (
                             /* Show “Set Midpoint” when it’s not active */
                             <button
-                                className="mt-1 px-3 py-1 bg-blue-700 text-white text-xs rounded"
+                                className="sidebar-action-btn sidebar-action-btn--midpoint text-xs mt-1"
                                 onClick={() =>
                                     setSelectedFleet(prev => ({
                                         ...prev,
@@ -151,13 +151,13 @@ export default function Tab2Content({
             )}
 
             {/* Copy‐All button */}
-                <div className="mt-4">
-                    <button
-                    className="px-4 py-2 bg-green-600 text-white rounded"
+            <div className="mt-4">
+                <button
+                    className="sidebar-action-btn sidebar-action-btn--copy"
                     onClick={handleCopyAll}
-                    >
-                    Copy All Fleets’ Mid & End Points
-                    </button>
+                >
+                    Copy All Fleets
+                </button>
             </div>
 
             {/* Scrollable “All Fleets End Positions” Table */}
