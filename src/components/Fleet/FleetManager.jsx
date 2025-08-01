@@ -25,40 +25,96 @@ const parseFleetData = (raw) => {
 
   for (let line of lines) {
     if (/Name\s+Type\s+Health/i.test(line)) continue;
+
     const parts = line.split('\t');
+    // if the “officers” column was missing, inject a blank
     if (parts.length === 19) parts.splice(3, 0, "");
+    // pad any other short rows
     while (parts.length < 20) parts.push("");
 
     const [
-      name, type, health, officers, place,
-      stance, range, xNow, yNow,,,
-      endX, endY, pathfind, cost,
-      fuel, rRange, mat, repairCost
+      name,
+      type,
+      health,
+      officers,
+      place,
+      stance,
+      /* range ignored here – we'll re-parse rRange */,
+      xNowRaw,
+      yNowRaw,
+      midXRaw,
+      midYRaw,
+      endXRaw,
+      endYRaw,
+      pathfind,
+      cost,
+      fuel,
+      rRange,
+      mat,
+      repairCost
     ] = parts;
 
-    const x = parseFloat(xNow);
-    const y = parseFloat(yNow);
-    const parsedRange = parseFloat(rRange);
-    const validRange = isNaN(parsedRange) ? 0 : parsedRange;
+    // --- START coords (must be valid) ---
+    const x0 = parseFloat(xNowRaw);
+    const y0 = parseFloat(yNowRaw);
+    if (isNaN(x0) || isNaN(y0)) continue;  // skip malformed rows
 
-    if (isNaN(x) || isNaN(y)) continue;
+    // --- OPTIONAL midpoint parsing ---
+    const mx = midXRaw.trim();
+    const my = midYRaw.trim();
+    const parsedMidX = mx !== "" && !isNaN(parseFloat(mx)) ? parseFloat(mx) : null;
+    const parsedMidY = my !== "" && !isNaN(parseFloat(my)) ? parseFloat(my) : null;
+    const midpointActive = parsedMidX !== null && parsedMidY !== null;
 
+    // --- OPTIONAL end-coords (fall back to start) ---
+    const ex = endXRaw.trim();
+    const ey = endYRaw.trim();
+    const parsedEndX = ex !== "" && !isNaN(parseFloat(ex)) ? parseFloat(ex) : x0;
+    const parsedEndY = ey !== "" && !isNaN(parseFloat(ey)) ? parseFloat(ey) : y0;
+
+    // --- effective range parsing ---
+    const pr = parseFloat(rRange);
+    const validRange = isNaN(pr) ? 0 : pr;
+
+    // --- assemble fleet object ---
     fleets.push({
-      name, type, health, officers, place, stance,
+      name,
+      type,
+      health,
+      officers,
+      place,
+      stance,
+
       range: validRange,
-      x, y,
-      xStart: x, yStart: y,
-      xMid: null,
-      yMid: null,
-      xEnd: x,
-      yEnd: y,
-      midpointActive: false,
-      cost, fuel, mat, repairCost
+
+      // current marker coords == imported end (if any), else start
+      x: parsedEndX,
+      y: parsedEndY,
+
+      // always remember the original start
+      xStart: x0,
+      yStart: y0,
+
+      // midpoint only if we got both values
+      xMid: midpointActive ? parsedMidX : null,
+      yMid: midpointActive ? parsedMidY : null,
+      midpointActive,
+
+      // keep the raw end coords around too
+      xEnd: parsedEndX,
+      yEnd: parsedEndY,
+
+      // other fields left untouched
+      cost,
+      fuel,
+      mat,
+      repairCost
     });
   }
 
   return fleets;
 };
+
 
 const FleetMarker = ({ fleet, onDrag, onDelete, selectedFleet, setSelectedFleet, activeTool }) => {
     const isSelected = selectedFleet?.name === fleet.name;

@@ -5,8 +5,8 @@
 
   --sidebar-offset:  calc(var(--sidebar-width) + var(--sidebar-gutter));
   --coord-offset:    calc(var(--sidebar-offset) + var(--extra-gutter));
-  --legend-width: 400px;
+  --legend-width: 35vw;
   --legend-hidden-offset: calc(-1 * var(--legend-width));
-  --nation-sidebar-width: 60vw;
+  --nation-sidebar-width: 50vw;
 
 }
