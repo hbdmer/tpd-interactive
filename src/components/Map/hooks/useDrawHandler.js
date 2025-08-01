@@ -1,5 +1,6 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useMemo } from 'react';
 import L from 'leaflet';
+import throttle from 'lodash.throttle';
 
 export default function useDrawHandler(drawStart, setDrawStart, setLines, isMultiDraw, map) {
   const previewLine = useRef(null);
@@ -52,5 +53,10 @@ export default function useDrawHandler(drawStart, setDrawStart, setLines, isMult
     cleanupPreview();
   };
 
-  return { handleDraw, updatePreview, cleanupPreview, reset };
+  const throttledUpdate = useMemo(
+    () => throttle(updatePreview, 16, { leading: true, trailing: true }),
+    [updatePreview]
+  );
+
+  return { handleDraw, updatePreview: throttledUpdate, cleanupPreview, reset };
 }
