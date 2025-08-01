@@ -159,6 +159,11 @@ const App = () => {
         dragging={true}
         trackResize={true}
         zoomControl={true}
+
+        tap={true}
+        tapTolerance={25}
+        touchZoom={true}
+        bounceAtZoomLimits={false}
       >
         <ImageOverlay
           url={
