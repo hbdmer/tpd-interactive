@@ -13,11 +13,28 @@ export default function useEraseHandler(eraseRadius, setLines, map) {
     return Math.hypot(pt.lng - xx, pt.lat - yy);
   };
 
-  const handleErase = useCallback(latlng => {
+  const handleErase = useCallback((latlng) => {
+    // 1) Erase lines within radius
     setLines(prev =>
       prev.filter(({ positions: [start, end] }) => closestDist(latlng, start, end) > eraseRadius)
     );
-  }, [eraseRadius, setLines]);
+
+    // 2) Erase the coordinate-finder marker if within radius
+    if (!map) return;
+    map.eachLayer(layer => {
+      // default marker OR circleMarker variant, tagged with options.isGoto === true
+      const isGoto =
+        (layer instanceof L.Marker || layer instanceof L.CircleMarker) &&
+        layer.options?.isGoto;
+
+      if (!isGoto) return;
+
+      const d = map.distance(latlng, layer.getLatLng()); // works with CRS.Simple
+      if (d <= eraseRadius) {
+        layer.remove();
+      }
+    });
+  }, [eraseRadius, setLines, map]);
 
   const updateCircle = useCallback(latlng => {
     if (!eraseCircle.current) {
