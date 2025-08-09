@@ -1,0 +1,48 @@
+/*————————————
+  Toolbar
+————————————*/
+.toolbar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-main);
+  padding: 5px;
+  border-right: var(--border-style);
+  z-index: 2100;
+  transition: left 0.3s ease;
+}
+.toolbar button {
+  margin: 4px 0;
+  padding: 6px 12px;
+  background: none;
+  border: 1px solid var(--bg-white);
+  border-radius: 4px;
+  color: var(--bg-white);
+  cursor: pointer;
+  font-family: 'Eurostile', 'Segoe UI', sans-serif;
+}
+.toolbar button:hover {
+  background-color: var(--hover-main);
+}
+.toolbar button.active {
+  background: #006699;
+}
+
+.toolbar .coord-finder {
+  display: inline-flex;
+  gap: .5rem;
+  color: var(--bg-white);
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.toolbar .coord-finder input {
+  width: auto;             /* ← let it grow with text */
+  min-width: 1rem;        /* ← remove any min-width from global styles */
+  max-width: 6rem;
+  padding: 0.25rem 0.5rem; /* adjust as needed for your design */
+  flex-shrink: 0;          /* keeps it from shrinking in the flex layout */
+}

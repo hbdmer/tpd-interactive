@@ -34,6 +34,7 @@ import NationSummaryPanel from './components/Nation/NationSummaryPanel';
 import NationSidebar from './components/NationSidebar/NationSidebar';
 import LegendPanel from './components/LegendPanel/LegendPanel';
 import MarkerToggle from './components/MarkerToggle/MarkerToggle';
+import CoordinateFinder from './components/Map/CoordinateFinder';
 
 // Constants
 const bounds = [[0, 0], [6000, 8000]];
@@ -85,14 +86,13 @@ const App = () => {
 
   // Coordinates
   const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [gotoValue, setGotoValue] = useState('');
 
   // Drawing
   const [lines, setLines] = useState([]);
   const [drawStart, setDrawStart] = useState(null);
   const [eraseRadius, setEraseRadius] = useState(50);
   const [isMultiDraw, setIsMultiDraw] = useState(false);
-
-  // Clipboard
 
   // Fleet import/data
   const [fleetImportText, setFleetImportText] = useState('');
@@ -145,6 +145,8 @@ const App = () => {
         setActiveTool={setActiveTool}
         eraseRadius={eraseRadius}
         setEraseRadius={setEraseRadius}
+        onGotoSubmit={(raw) => setGotoValue(raw)}
+
       />
       <Toast message={toastMsg} />
 
@@ -212,6 +214,11 @@ const App = () => {
           isMultiDraw={isMultiDraw}
           setIsMultiDraw={setIsMultiDraw}
           setSelectedFleet={setSelectedFleet}
+        />
+        <CoordinateFinder
+          gotoValue={gotoValue}
+          toast={setToastMsg}
+          onResult={() => {}}
         />
         <CursorManager activeTool={activeTool} />
         <CoordinateDisplay coords={coords} />
