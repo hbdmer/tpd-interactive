@@ -1,0 +1,19 @@
+/*————————————
+  Toast
+————————————*/
+.toast {
+  position: absolute;
+  top: 50px;
+  left: 70px;
+  background: var(--bg-main);
+  color: var(--bg-white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 1001;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.toast.visible {
+  opacity: 1;
+}
