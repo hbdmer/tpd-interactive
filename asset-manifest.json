@@ -1,8 +1,12 @@
 {
   "files": {
     "main.css": "/tpd-interactive/static/css/main.9f80d920.css",
-    "main.js": "/tpd-interactive/static/js/main.0a97f44d.js",
+    "main.js": "/tpd-interactive/static/js/main.21ab9c1a.js",
     "static/js/453.68693753.chunk.js": "/tpd-interactive/static/js/453.68693753.chunk.js",
+    "static/media/map20_master.png": "/tpd-interactive/static/media/map20_master.19ae4945ffde1483650d.png",
+    "static/media/map18.png": "/tpd-interactive/static/media/map18.c8e0ae8be491763a677e.png",
+    "static/media/map19.png": "/tpd-interactive/static/media/map19.de72bd4e31c656fb31ad.png",
+    "static/media/map20.png": "/tpd-interactive/static/media/map20.c5530a261c542caf543e.png",
     "static/media/map17.png": "/tpd-interactive/static/media/map17.8bc465223e172f083e35.png",
     "static/media/map16.png": "/tpd-interactive/static/media/map16.d227975f6d26e5408da6.png",
     "static/media/map12.png": "/tpd-interactive/static/media/map12.74f4a7cfeeb8ca837ec5.png",
@@ -21,12 +25,14 @@
     "static/media/map02.png": "/tpd-interactive/static/media/map02.9aa8936d5e227355a2e3.png",
     "static/media/map01.png": "/tpd-interactive/static/media/map01.e56b870cc749e16917d7.png",
     "static/media/map00.png": "/tpd-interactive/static/media/map00.3b23509d37d276f6f1f2.png",
+    "static/media/map20_cities.png": "/tpd-interactive/static/media/map20_cities.5d1da4c45c7d9dfafc38.png",
     "static/media/map09_cities.png": "/tpd-interactive/static/media/map09_cities.7eab21d9121053e34dd3.png",
     "static/media/map03_cities.png": "/tpd-interactive/static/media/map03_cities.47a5cde5e1c5de810840.png",
     "static/media/map02_cities.png": "/tpd-interactive/static/media/map02_cities.1daa2bef1353dcc00e86.png",
     "static/media/popmap.png": "/tpd-interactive/static/media/popmap.694e831cc14fde1cce8f.png",
     "static/media/map00_cities.png": "/tpd-interactive/static/media/map00_cities.598209e4d8b2174d45b1.png",
     "static/media/farmmap.png": "/tpd-interactive/static/media/farmmap.e3a07e9e18fbc4585bcd.png",
+    "static/media/map20_clean.png": "/tpd-interactive/static/media/map20_clean.125bbbee6e50a070a006.png",
     "static/media/resmap.png": "/tpd-interactive/static/media/resmap.3c21c20b7f8625dd748f.png",
     "static/media/nationmap.png": "/tpd-interactive/static/media/nationmap.9e77eb1104ceddec7a17.png",
     "static/media/ns_RumoKaya.png": "/tpd-interactive/static/media/ns_RumoKaya.21a830dce7af5caef4c3.png",
@@ -64,11 +70,11 @@
     "index.html": "/tpd-interactive/index.html",
     "static/media/cross.ico": "/tpd-interactive/static/media/cross.48b3858dc1d8974f30e4.ico",
     "main.9f80d920.css.map": "/tpd-interactive/static/css/main.9f80d920.css.map",
-    "main.0a97f44d.js.map": "/tpd-interactive/static/js/main.0a97f44d.js.map",
+    "main.21ab9c1a.js.map": "/tpd-interactive/static/js/main.21ab9c1a.js.map",
     "453.68693753.chunk.js.map": "/tpd-interactive/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9f80d920.css",
-    "static/js/main.0a97f44d.js"
+    "static/js/main.21ab9c1a.js"
   ]
 }
